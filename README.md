@@ -1,4 +1,4 @@
-# swedish-accounting-skills
+# accounted-skills
 
 Claude skills for Swedish accounting compliance. These skills give Claude deep knowledge of Swedish bookkeeping law, tax rules, and reporting requirements, useful for any developer building accounting software targeting Sweden, or anyone doing their own bookkeeping.
 
@@ -27,13 +27,17 @@ Claude skills for Swedish accounting compliance. These skills give Claude deep k
 | `swedish-vat` | Momsdeklaration rutor, EU VAT, reverse charge, BAS 26xx, ML 2023:200 |
 | `swedish-year-end-closing` | Bokslut for AB/EF, bokslutstransaktioner, tax provisions, filing |
 
+## Community
+
+Instructions shared by Accounted's users and others live in [`community/`](community/README.md): workflows, knowledge and analyses, each reviewed by Accounted before it is merged. Browse them at [accounted.se/instruktioner](https://accounted.se/instruktioner). To share your own, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Usage
 
 Clone this repo and the skills will be available in Claude Code when working inside the directory:
 
 ```bash
-git clone https://github.com/erp-mafia/swedish-accounting-skills.git
-cd swedish-accounting-skills
+git clone https://github.com/erp-mafia/accounted-skills.git
+cd accounted-skills
 claude
 ```
 
@@ -52,4 +56,4 @@ Claude Code enforces a **max 1024 characters** for the `description` field in `S
 
 ## License
 
-AGPL-3.0-or-later
+[MIT](LICENSE). Anyone may use, change, share and sell these skills, including contributions in `community/`, as long as the licence notice comes along.
