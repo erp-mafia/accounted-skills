@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Common Mistakes, Compliance Pitfalls, and Reference Rates
 
 ## Common mistakes
@@ -8,7 +9,7 @@ Interimsposter booked at year-end must be reversed on day 1 of new fiscal year. 
 ### 2. Incorrect periodiseringsfond calculations
 - Wrong percentage: 25% for AB, 30% for EF
 - Missing mandatory 6-year reversal
-- Forgetting the **gross-up rule** for juridiska personer (SFS 2018:1206, övergångsbestämmelser p. 5): funds from beskattningsår beginning before 2019 (22% rate) were reversed at 103% in beskattningsår beginning 2019–2020 and 106% thereafter; funds from beskattningsår beginning 2019–2020 are reversed at 104% in beskattningsår beginning after 2020; funds from 2021 onward at 100%
+- Forgetting the **gross-up rule** for juridiska personer (SFS 2018:1206, övergångsbestämmelser p. 5): funds from beskattningsår beginning before 2019 (22% rate) were reversed at 103% in beskattningsår beginning 2019-2020 and 106% thereafter; funds from beskattningsår beginning 2019-2020 are reversed at 104% in beskattningsår beginning after 2020; funds from 2021 onward at 100%
 
 ### 3. Missing schablonintäkt on periodiseringsfonder
 Affects AB companies. SLR × total funds at year-start. Is a skattemässig justering, NEVER booked. Many systems incorrectly try to record it as journal entry.
@@ -76,4 +77,4 @@ For enskild firma: periodiseringsfond, expansionsfond, räntefördelning, egenav
 | Neg. räntefördelning threshold | -500,000 SEK | -500,000 SEK |
 | Revisor opt-out thresholds | >3 emp, >1.5M BS, >3M rev (2/3) | Same |
 
-The K2 accrual threshold is separate from the 7.9 recurring-cost rule (not personnel costs, at most 20% variation, no amount limit); see `k2-vs-k3.md`. PBB 2027: 59,600 SEK calculated by SCB, not yet formally set. ÅRL size thresholds and revisionsplikt limits are unchanged; the ÅRL company-categories inquiry (Ju 2025:11) reports by 2026-09-29.
+The K2 accrual threshold is separate from the 7.9 recurring-cost rule (not personnel costs, at most 20% variation, no amount limit); see `k2-vs-k3.md`. PBB 2027: 59,600 SEK calculated by SCB, not yet formally set. ÅRL size thresholds and revisionsplikt limits are unchanged; the ÅRL company-categories inquiry (Ju 2025:11) reported in SOU 2026:59, proposing a mikroföretag category from the FY beginning after 2027-12-31 (not law yet).

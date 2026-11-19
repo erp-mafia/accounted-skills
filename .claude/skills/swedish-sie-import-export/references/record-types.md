@@ -1,3 +1,8 @@
+---
+audience: developer
+---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+
 # SIE4 Record Type Reference
 
 Complete specification of all SIE4 record types, fields, and rules, per SIE filformat utgåva 4C (2025-08-06).
@@ -374,4 +379,4 @@ The closing `#KSUMMA` comes last. Writers should put balances before verificatio
 | #RTRANS/#BTRANS | N/A | N/A | N/A | Optional | Optional |
 | #KSUMMA | Optional | Optional | Optional | Optional | Optional |
 
-N/A = the record may not appear in that file type. #ORGNR, #KPTYP, #TAXAR, #VALUTA, #FTYP, #ADRESS and #PROSA are optional in all types. Required balance records (#IB, #UB, #RES, #OIB, #OUB, #PSALDO, #PBUDGET) must be written whenever values exist; zero balances may be omitted (spec 5.17–5.18). Source: SIE filformat 4C, section 6.
+N/A = the record may not appear in that file type. #ORGNR, #KPTYP, #TAXAR, #VALUTA, #FTYP, #ADRESS and #PROSA are optional in all types. Required balance records (#IB, #UB, #RES, #OIB, #OUB, #PSALDO, #PBUDGET) must be written whenever values exist; zero balances may be omitted (spec 5.17-5.18). Source: SIE filformat 4C, section 6.

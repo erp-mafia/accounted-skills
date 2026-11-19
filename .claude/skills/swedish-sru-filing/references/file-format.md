@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # SRU File Format: Structure, Encoding and a Worked Example
 
 <!-- toc -->
@@ -42,7 +43,7 @@ Posts must appear in this exact order. Omit optional posts entirely if not used.
 
 Mandatory posts: `#PRODUKT`, `#FILNAMN`, `#ORGNR`, `#NAMN`, `#POSTNR`, `#POSTORT`.
 
-The `#PRODUKT` value is always `SRU` (post-2013). There is no `#PERIOD` post — period is encoded in each blankett type string.
+The `#PRODUKT` value is always `SRU` (post-2013). There is no `#PERIOD` post: period is encoded in each blankett type string.
 
 ## 2. BLANKETTER.SRU structure
 
@@ -65,9 +66,9 @@ An aktiebolag filing INK2 must include three separate blocks in this file:
 
 | Block | BlankettTyp example | Content |
 |---|---|---|
-| INK2 | `INK2-2024P4` | Huvudblankett (page 1) — summary fields |
-| INK2R | `INK2R-2024P4` | Räkenskapsschema (pages 2-3) — balance sheet + income statement |
-| INK2S | `INK2S-2024P4` | Skattemässiga justeringar (page 4) — tax adjustments |
+| INK2 | `INK2-2024P4` | Huvudblankett (page 1): summary fields |
+| INK2R | `INK2R-2024P4` | Räkenskapsschema (pages 2-3): balance sheet + income statement |
+| INK2S | `INK2S-2024P4` | Skattemässiga justeringar (page 4): tax adjustments |
 
 ### Period suffix rules
 
@@ -75,16 +76,16 @@ The suffix after the hyphen encodes when the fiscal year ENDS:
 
 | Suffix | Fiscal year ends in months |
 |---|---|
-| P1 | January–April |
-| P2 | May–June |
-| P3 | July–August |
-| P4 | September–December (calendar-year companies) |
+| P1 | January-April |
+| P2 | May-June |
+| P3 | July-August |
+| P4 | September-December (calendar-year companies) |
 
 The year in the type string is the INCOME YEAR (inkomstår: the calendar year in which the räkenskapsår ends), not the filing year. A company with fiscal year 2024-01-01 to 2024-12-31 uses period `2024P4`; fiscal year 2024-07-01 to 2025-06-30 uses `2025P2`.
 
 ### Each block is independent
 
-Every blankett block carries its own `#IDENTITET` line. The `DatFramst` timestamp determines version precedence — later timestamps replace earlier submissions for the same org number and blankett type.
+Every blankett block carries its own `#IDENTITET` line. The `DatFramst` timestamp determines version precedence: later timestamps replace earlier submissions for the same org number and blankett type.
 
 ## 3. Encoding and formatting rules
 
@@ -112,7 +113,7 @@ All three conventions accepted: `\r\n` (Windows), `\r` (classic Mac), `\n` (Unix
 
 ### Sign convention (teckenkonventionen)
 
-The sign printed on the form applies and the amount is reported as a **positive** number. Cost rows printed with "−" (e.g. INK2R 7511–7517, 7522, 7528; INK2S 7751, 7763) are therefore sent as positive amounts. A negative amount means the value deviates from the printed sign. Fields without a printed sign (balance sheet rows 2.1–2.50) are reported with their actual sign. The printed sign per field is in column `*/+/-` of Skatteverket's fältnamnstabell; see `references/sru-codes.md`.
+The sign printed on the form applies and the amount is reported as a **positive** number. Cost rows printed with "−" (e.g. INK2R 7511-7517, 7522, 7528; INK2S 7751, 7763) are therefore sent as positive amounts. A negative amount means the value deviates from the printed sign. Fields without a printed sign (balance sheet rows 2.1-2.50) are reported with their actual sign. The printed sign per field is in column `*/+/-` of Skatteverket's fältnamnstabell; see `references/sru-codes.md`.
 
 ### Org number format
 
@@ -122,7 +123,7 @@ Always 12 digits, format `SSÅÅMMDDNNNK`, no hyphens.
 
 ### Checkbox fields
 
-Value: uppercase `X`. If unchecked, **omit the entire #UPPGIFT line** — never send empty values.
+Value: uppercase `X`. If unchecked, **omit the entire #UPPGIFT line**: never send empty values.
 
 ### The `#` character
 
@@ -139,7 +140,7 @@ Reserved for post names. **Forbidden in all string data values.**
 #DATABESKRIVNING_START
 #PRODUKT SRU
 #SKAPAD 20250401 100000
-#PROGRAM Bokforingsprogram 1.0
+#PROGRAM accounted 1.0
 #FILNAMN BLANKETTER.SRU
 #DATABESKRIVNING_SLUT
 #MEDIELEV_START
@@ -213,14 +214,14 @@ Skatteverket validates on upload and returns a mottagningskvittens.
 - Invalid blankett type string
 
 ### Most frequent real-world failures
-1. **Renamed files** — browsers adding `(1)` suffix
-2. **Wrong period** — using `2025P4` when income year is 2024
-3. **Amounts with decimals or spaces** — `7135.50` or `7 135`
+1. **Renamed files**: browsers adding `(1)` suffix
+2. **Wrong period**: using `2025P4` when income year is 2024
+3. **Amounts with decimals or spaces**: `7135.50` or `7 135`
 4. **UTF-8 encoding** instead of ISO 8859-1
 5. **Including #UPPGIFT for zero/empty values**
 6. **Duplicate field codes** in same blankett block
 7. **10-digit or hyphenated org number** instead of 12-digit
-8. **Non-existent SRU codes** — mapping BAS accounts to wrong field codes
+8. **Non-existent SRU codes**: mapping BAS accounts to wrong field codes
 
 ## 7. Data type reference
 

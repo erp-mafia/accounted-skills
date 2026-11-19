@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Strategy, Interactions, and Optimization
 
 <!-- toc -->
@@ -118,9 +119,9 @@ The most valuable long-term strategy for a fåmansbolagsägare:
 
 ### Enacted
 
-- **Skattereduktion för gåvor från juridiska personer** (IL 67 kap. 21, 23 and 24 a–26 a §§, SFS 2025:1361; gåvor lämnade efter 2025-12-31): gifts of money of at least **2 000 kr** per gåvotillfälle to a godkänd gåvomottagare (social hjälpverksamhet or vetenskaplig forskning) give a skattereduktion of **20.6%** of the gift. The underlag is capped at **800 000 kr per kalenderår** (max reduction 164 800 kr). Requested in the first income tax return due after the end of the calendar year of the gift. The gift is not taxed as intäkt or utdelning for the owners (IL 11 kap. 49 §, 42 kap. 12 a §).
+- **Skattereduktion för gåvor från juridiska personer** (IL 67 kap. 21, 23 and 24 a-26 a §§, SFS 2025:1361; gåvor lämnade efter 2025-12-31): gifts of money of at least **2 000 kr** per gåvotillfälle to a godkänd gåvomottagare (social hjälpverksamhet or vetenskaplig forskning) give a skattereduktion of **20.6%** of the gift. The underlag is capped at **800 000 kr per kalenderår** (max reduction 164 800 kr). Requested in the first income tax return due after the end of the calendar year of the gift. The gift is not taxed as intäkt or utdelning for the owners (IL 11 kap. 49 §, 42 kap. 12 a §).
 - **Ränteavdrag on intra-group debt to EES lenders** (IL 24 kap. 19 a §, prop. 2025/26:20): from beskattningsår beginning after 2025-12-31, deduction is denied only for a konstlat upplägg. See `ranteavdragsbegransningar.md`.
-- **3:12 steg 2**: four-year periods in 57 kap. 3–5 §§ from inkomstår 2027. See `312-regler.md`.
+- **3:12 steg 2**: four-year periods in 57 kap. 3-5 §§ from inkomstår 2027. See `312-regler.md`.
 
 ### Proposed, not enacted
 

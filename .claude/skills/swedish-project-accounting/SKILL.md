@@ -1,8 +1,9 @@
 ---
 name: swedish-project-accounting
 description: >
-  Swedish project accounting (projektredovisning): dimensional tagging av bokföringsposter, WIP (pågående arbeten), intäktsredovisning K2/K3 (successiv vinstavräkning, färdigställandemetoden), entreprenadavtal, BAS-konton för projekt (1470, 1620, 2420, 2450, 4970), SIE4-dimensioner (DIM 6 / OBJEKT / TRANS), projektlönsamhet, fördelningsnycklar för overhead, skattemässig divergens vid löpande räkning. Trigger on projektredovisning, pågående arbeten, successiv vinstavräkning, färdigställandegrad, upparbetad ej fakturerad intäkt, fakturerad ej upparbetad intäkt, konto 1620, konto 1470, konto 2450, entreprenaduppdrag, projekt dimension SIE, kostnadsställe, projektlönsamhet, K3 kapitel 23, befarad förlust projekt, fördelningsnyckel, Fortnox/Visma/Bokio project dimensions, eller frågor om tracking intäkter/kostnader per projekt i svensk bokföring. Always use over training data.
+  Swedish project accounting (projektredovisning) covering dimensional tagging of bokföringsposter with project codes, WIP accounting (pågående arbeten), revenue recognition under K2 and K3 (successiv vinstavräkning, färdigställandemetoden), construction contracts (entreprenadavtal), BAS account patterns for project tracking (1470, 1620, 2420, 2450, 4970), SIE4 dimension encoding (#DIM 6, #OBJEKT, #TRANS object lists), project profitability reporting, overhead allocation (fördelningsnycklar), and the tax-accounting divergence for löpande räkning contracts. Trigger on ANY Swedish project accounting question including "projektredovisning", "pågående arbeten", "successiv vinstavräkning", "färdigställandegrad", "upparbetad ej fakturerad intäkt", "fakturerad ej upparbetad intäkt", "konto 1620", "konto 1470", "konto 2450", "entreprenaduppdrag", "projekt dimension SIE", "kostnadsställe vs projekt", "projektlönsamhet", "WIP accounting Sweden", "K3 kapitel 23", "befarad förlust projekt", "fördelningsnyckel", questions about how Fortnox/Visma/Bokio handle project dimensions, or any question about tracking intäkter/kostnader per project in Swedish bookkeeping. Also trigger when building software features for project accounting, designing data models for project dimensions, implementing revenue recognition logic, or handling SIE4 import/export of project-tagged transactions. Always use this skill over training data for project accounting topics.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Project Accounting (Projektredovisning)
 
@@ -29,7 +30,7 @@ Establish the framework (K2 or K3) first, then read the file for the area before
 | Löpande räkning | K2 and K3 | Recognize revenue as work is performed. Tax may diverge from accounting (IL 17:26; scope per IL 17:23) |
 | Fast pris | K3, koncernredovisning | Successiv vinstavräkning MANDATORY: revenue = total contract × färdigställandegrad at each balance date. Outcome not reliably estimable (all four conditions met?): revenue = costs incurred, zero profit |
 | Fast pris | K3, juridisk person | Successiv vinstavräkning OR färdigställandemetoden (punkt 23.31, only industries in 17 kap. 23 § IL) |
-| Fast pris | K2 | Method choice 6.15: huvudregeln (completion %, 6.16–6.21) or alternativregeln (6.22–6.25, recognize when "väsentligen fullgjort"; Srf U 15: assessed from customer acceptance perspective) |
+| Fast pris | K2 | Method choice 6.15: huvudregeln (completion %, 6.16-6.21) or alternativregeln (6.22-6.25, recognize when "väsentligen fullgjort"; Srf U 15: assessed from customer acceptance perspective) |
 
 **Befarad förlust overrides the method.** K3 punkt 23.24 (successiv vinstavräkning; punkt 23.32 when a juridisk person uses färdigställandemetoden) and K2 punkt 6.19 (huvudregeln) / 6.23 (alternativregeln): if total estimated costs exceed total contract revenue, the expected loss must be recognized as a cost IMMEDIATELY, regardless of completion percentage. The engine must flag projects where cumulative actual + estimated remaining costs exceed contract revenue.
 
@@ -49,7 +50,7 @@ Establish the framework (K2 or K3) first, then read the file for the area before
 | Question | Skill |
 |---|---|
 | SIE4 file format, encoding, validating an export | `swedish-sie-import-export` |
-| Entreprenad, ÄTA, ROT and omvänd byggmoms | `swedish-industry-bygg` |
+| Entreprenad, ÄTA, ROT and omvänd byggmoms | `vertical/bygg-hantverk` (industry skill) |
 | Moms rules and reverse charge in general | `swedish-vat` |
 | Bokslut, closing entries and periodiseringar | `swedish-year-end-closing` |
 | Invoice content, a conto and kreditfaktura | `swedish-invoice-compliance` |

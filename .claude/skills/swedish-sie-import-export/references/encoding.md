@@ -1,3 +1,8 @@
+---
+audience: developer
+---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+
 # SIE4 Character Encoding Reference
 
 ## The spec vs. reality
@@ -27,7 +32,7 @@ The SIE4 spec (still in utgåva 4C, 2025-08-06) allows only IBM PC Codepage 437 
 ### CP437 bytes misread as Latin-1/CP1252
 - å → `†`, ä → `„`, ö → `”`
 - Å → undefined in CP1252 (0x8F; shown as a control char or `�`), Ä → `Ž` (0x8E), Ö → `™`
-- In strict ISO 8859-1, every byte 0x80–0x9F is a control character, so all six letters show as control chars or disappear
+- In strict ISO 8859-1, every byte 0x80-0x9F is a control character, so all six letters show as control chars or disappear
 - **Telltale**: Typographic characters like `†„”™Ž` in account names
 - **Fix**: Re-read the file as CP437
 

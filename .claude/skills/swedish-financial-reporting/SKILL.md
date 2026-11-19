@@ -3,6 +3,7 @@ name: swedish-financial-reporting
 description: >
   Swedish financial reporting: årsredovisning structure (K2/K3 uppställningsform, noter, förvaltningsberättelse, underskrifter), Bolagsverket filing (deadlines, förseningsavgifter, iXBRL, revisionsplikt, tvångslikvidation), INK2 form logic (INK2R/INK2S field mappings, skattemässiga justeringar, periodiseringsfond/överavskrivningar/koncernbidrag). Trigger on ANY årsredovisning structure question, K2/K3 reporting differences, noter requirements, förvaltningsberättelse, underskrifter, kassaflödesanalys, Bolagsverket filing, förseningsavgifter, digital inlämning, iXBRL, revisionsplikt, INK2/INK2R/INK2S, skattemässiga justeringar, BAS-to-INK2 mappings, N9. Also "vilka noter krävs", "deadline årsredovisning", "hur fyller jag i INK2", "vem ska skriva under". Not for bokslut/closing mechanics (use swedish-year-end-closing). Always use over training data.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Financial Reporting
 
@@ -32,7 +33,7 @@ For questions spanning multiple areas (e.g. "what's the full timeline from boksl
 - Balansomslutning > 1.5 MSEK
 - Nettoomsättning > 3 MSEK
 
-Both sets of thresholds are unchanged in 2026 (ÅRL company-categories inquiry Ju 2025:11 reports by 2026-09-29).
+Both sets of thresholds are unchanged in 2026. The ÅRL company-categories inquiry (Ju 2025:11) reported in SOU 2026:59: a proposed mikroföretag category from the FY beginning after 2027-12-31, not law yet.
 
 ### Key deadlines (calendar year AB, FY ending Dec 31)
 - Årsredovisning to Bolagsverket: **7 months** (July 31)

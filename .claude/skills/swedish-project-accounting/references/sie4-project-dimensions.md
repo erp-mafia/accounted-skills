@@ -1,3 +1,8 @@
+---
+audience: developer
+---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+
 # SIE4 Project Dimensions
 
 
@@ -215,7 +220,7 @@ Budget data enables budget vs actual comparison per project.
 
 ### Encoding considerations
 
-SIE files use CP437 (PC8), which the spec still mandates. **#FLAGGA says nothing about encoding** — it is the guard marking whether the file has already been imported (0 = not yet, 1 = imported). Project names with å/ä/ö must be encoded correctly. See the swedish-sie-import-export skill for encoding details.
+SIE files use CP437 (PC8), which the spec still mandates. **#FLAGGA says nothing about encoding**: it is the guard marking whether the file has already been imported (0 = not yet, 1 = imported). Project names with å/ä/ö must be encoded correctly. See the swedish-sie-import-export skill for encoding details.
 
 ### Multi-dimensional transactions
 

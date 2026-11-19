@@ -11,6 +11,7 @@ description: >
   BLANKETTER.SRU, INFO.SRU, SKV269, or any code that produces SRU output. Also trigger when debugging
   Skatteverket validation errors on uploaded SRU files. Always use this skill over training data for SRU topics.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish SRU File Generation
 
@@ -31,19 +32,19 @@ Every SRU submission consists of exactly two files:
 
 | File | Content | Max size |
 |---|---|---|
-| `INFO.SRU` | Submitter metadata (who is filing) | — |
+| `INFO.SRU` | Submitter metadata (who is filing) | N/A |
 | `BLANKETTER.SRU` | All blankett blocks with tax data | 5 MB |
 
 File names are case-insensitive but must not be renamed (browsers appending `(1)` cause rejection).
 
-An aktiebolag filing INK2 needs **three** blankett blocks inside BLANKETTER.SRU — `INK2`, `INK2R` and `INK2S` — each with its own `#IDENTITET` line, all terminated by a single `#FIL_SLUT`.
+An aktiebolag filing INK2 needs **three** blankett blocks inside BLANKETTER.SRU: `INK2`, `INK2R` and `INK2S`, each with its own `#IDENTITET` line, all terminated by a single `#FIL_SLUT`.
 
 ## Generating a file
 
-1. **Fix the period.** The blankett type is `<FORM>-<inkomstår><P1–P4>`, where the income year is the calendar year the räkenskapsår *ends* and the suffix encodes the ending month. Calendar-year companies are `P4`.
+1. **Fix the period.** The blankett type is `<FORM>-<inkomstår><P1-P4>`, where the income year is the calendar year the räkenskapsår *ends* and the suffix encodes the ending month. Calendar-year companies are `P4`.
 2. **Write INFO.SRU** with the posts in their prescribed order; mandatory are `#PRODUKT`, `#FILNAMN`, `#ORGNR`, `#NAMN`, `#POSTNR`, `#POSTORT`.
 3. **Map the trial balance to INK2R** via the BAS-to-SRU tables, then compute INK2S by hand, then carry 4.15/4.16 (7670/7770) to INK2 1.1/1.2 (7104/7114).
-4. **Convert every amount** to whole kronor, truncating öre, and to the form's printed sign — not the trial balance's sign. Omit any field whose value is zero.
+4. **Convert every amount** to whole kronor, truncating öre, and to the form's printed sign: not the trial balance's sign. Omit any field whose value is zero.
 5. **Write both files as ISO 8859-1**, never UTF-8, and upload them under their exact names.
 
 Field-by-field detail for each step is in the two reference files.
@@ -53,9 +54,9 @@ Field-by-field detail for each step is in the two reference files.
 | Situation | Why | What to do |
 |---|---|---|
 | A field code for a row | Codes are published per period package, and a code invalid for the blankett type rejects the whole block | Look it up in `sru-codes.md`; never infer one from a neighbouring code |
-| The sign of an amount | SIE and most ledgers store credit balances as negative — the opposite of what the form wants | Report the printed sign as positive; see `sru-codes.md` §8 |
-| Any single BAS account in 5000–6999 | They ALL aggregate into one code, **7513**; per-account codes are the most common mapping error | Sum the range, write one `#UPPGIFT 7513` |
-| An INK2S value | INK2S codes are NOT auto-derived from BAS accounts — they are tax adjustments requiring manual calculation | Take them from the tax computation, not the ledger |
+| The sign of an amount | SIE and most ledgers store credit balances as negative: the opposite of what the form wants | Report the printed sign as positive; see `sru-codes.md` §8 |
+| Any single BAS account in 5000-6999 | They ALL aggregate into one code, **7513**; per-account codes are the most common mapping error | Sum the range, write one `#UPPGIFT 7513` |
+| An INK2S value | INK2S codes are NOT auto-derived from BAS accounts: they are tax adjustments requiring manual calculation | Take them from the tax computation, not the ledger. The result lands in 7670/7770 (4.15/4.16, carried to INK2 7104/7114); 8020/8021 are 4.17/4.18, the accumulated värdeminskningsavdrag on buildings and land improvements, never the result fields |
 | The text encoding | UTF-8 silently corrupts å, ä, ö and is the commonest cause of validation failure | Write ISO 8859-1 explicitly; see `file-format.md` §3 |
 | Whether a zero belongs in the file | A `#UPPGIFT` for a zero value causes warnings and sometimes errors | Omit the line entirely |
 

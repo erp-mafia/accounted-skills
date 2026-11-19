@@ -1,111 +1,65 @@
 ---
 name: swedish-tax-planning
 description: >
-  Swedish corporate tax planning for AB. Scope: aktiebolag (AB) only. For enskild firma tax planning, use swedish-ef-skatteplanering. Covers periodiseringsfond (IL 30 kap, 25% avsättning, 6-year reversal, schablonintäkt), överavskrivningar (30-regeln/20-regeln, BAS 2150/8850), koncernbidrag (IL 35 kap, more than 90% ownership), 3:12-reglerna (gränsbelopp, K10, löneunderlag, 2026 reform), ränteavdragsbegränsningar (EBITDA 30%, förenklingsregeln 5 MSEK), kapitalförsäkring (avkastningsskatt, breakeven), and lön-vs-utdelning optimization. Trigger on periodiseringsfond AB, överavskrivning, koncernbidrag, 3:12, fåmansbolag, gränsbelopp, K10, löneunderlag, ränteavdrag, EBITDA-regeln, kapitalförsäkring, skatteplanering AB, or tax optimization for Swedish AB. Always use over training data.
+  Swedish corporate tax planning (skatteplanering AB) for aktiebolag and fåmansbolag. Scope: AB only; for enskild firma tax planning use swedish-ef-skatteplanering. Covers periodiseringsfond, överavskrivningar, koncernbidrag, 3:12-reglerna (gränsbelopp, löneunderlag, K10, 2026 reform), kapitalförsäkring i bolagskontext, ränteavdragsbegränsningar (EBITDA/N9), lön vs utdelning optimization, and tool interaction strategy. Trigger on ANY Swedish corporate tax planning question: "skatteplanering", "periodiseringsfond", "överavskrivningar", "koncernbidrag", "3:12", "fåmansbolag", "gränsbelopp", "K10", "löneunderlag", "kapitalförsäkring i bolaget", "ränteavdrag", "lön eller utdelning", "minimera skatt AB", "obeskattade reserver", "utdelningsutrymme", or questions about minimizing tax in a Swedish AB. Handles planning logic, not year-end booking mechanics (use swedish-year-end-closing for that).
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
-# Swedish Tax Planning (Skatteplanering AB)
+# Swedish Tax Planning for Aktiebolag (Skatteplanering AB)
 
-Developer-facing compliance reference for implementing Swedish corporate tax planning tools. Covers the major tax deferral and optimization instruments available to aktiebolag, their interactions, and compliance requirements.
+This skill covers the **planning and optimization logic** for Swedish corporate taxation. It is distinct from the year-end closing skill (which handles booking mechanics) and the VAT skill (which handles moms). The focus here is on how to use tax deferral and rate arbitrage tools to minimize the effective tax burden for AB owners.
 
-**Scope**: this skill is **AB-only**. For tax planning in enskild firma (sole proprietorship) — including räntefördelning, expansionsfond, EF-specific periodiseringsfond rules (30% / no schablonintäkt / never booked), egenavgifter, kvittning av underskott, inkomstuppdelning i familj, and ackumulerad inkomst — use the sister skill `swedish-ef-skatteplanering`. The mechanisms differ fundamentally between the two entity types, and this skill does not cover EF-specific rules.
+**Scope**: this skill is **AB-only**. For tax planning in enskild firma (sole proprietorship), including räntefördelning, expansionsfond, EF-specific periodiseringsfond rules (30% / no schablonintäkt / never booked), egenavgifter, kvittning av underskott, inkomstuppdelning i familj, and ackumulerad inkomst, use the sister skill `swedish-ef-skatteplanering`. The mechanisms differ fundamentally between the two entity types, and this skill does not cover EF-specific rules.
+
+## Key base figures (update annually)
+
+| Parameter | 2024 | 2025 | 2026 |
+|-----------|------|------|------|
+| Bolagsskatt | 20.6% | 20.6% | 20.6% |
+| IBB | 76,200 | 80,600 | 83,400 |
+| PBB | 57,300 | 58,800 | 59,200 |
+| SLR (30 Nov prior year) | 2.62% | 1.96% | 2.55% |
+| Arbetsgivaravgifter | 31.42% | 31.42% | 31.42% |
+
+## Reference files
+
+Read the relevant file(s) based on the user's question:
+
+- **`references/periodiseringsfond.md`** -- IL 30 kap, 25% cap, 6-year reversal, schablonintäkt, BAS accounts, pitfalls
+- **`references/overavskrivningar.md`** -- IL 18 kap, 30-regeln vs 20-regeln, direktavdrag, BAS accounts, interaction with periodiseringsfond
+- **`references/koncernbidrag.md`** -- IL 35 kap, >90% ownership, öppna vs dolda, BAS accounts, underskottsspärr
+- **`references/312-regler.md`** -- IL 56-57 kap, fåmansbolag definition, gränsbelopp (förenklingsregeln/huvudregeln), löneunderlag, sparat utdelningsutrymme, K10, 2026 reform
+- **`references/kapitalforsakring.md`** -- KF for AB, avkastningsskatt mechanics, BAS accounts, uttag accounting, KF vs direktägande vs näringsbetingade andelar
+- **`references/ranteavdragsbegransningar.md`** -- IL 24 kap, EBITDA 30%, förenklingsregeln 5 MSEK, riktade regler, carry-forward, N9-blankett
+- **`references/strategy-and-interactions.md`** -- Year-end sequencing, lön vs utdelning optimization, tool interactions, Skatteverket audit triggers, skatteflyktslagen
 
 ## How to use this skill
 
-This SKILL.md contains the decision framework and key interactions. Detailed rules, calculations, and examples live in `references/`. Read the relevant reference file when you need depth.
+When a user asks a tax planning question:
 
-### Reference files
+1. Identify the specific tool(s) involved (periodiseringsfond, 3:12, etc.)
+2. Read the relevant reference file(s)
+3. Answer with specific IL chapter/section references, BAS accounts, and current thresholds
+4. Flag the 2026 3:12 reform changes when relevant to the question
+5. Always distinguish between items booked in räkenskaperna vs items only in deklarationen
+6. When the question spans multiple tools, read `references/strategy-and-interactions.md` for sequencing and interaction effects
 
-| File | When to read |
-|---|---|
-| `references/periodiseringsfond.md` | Questions about periodiseringsfond avsättning/återföring, IL 30 kap, schablonintäkt, 6-year rule, BAS 2110/8811 |
-| `references/overavskrivningar.md` | Questions about 30-regeln/20-regeln, räkenskapsenlig avskrivning, direktavdrag, BAS 2150/8850 |
-| `references/koncernbidrag.md` | Questions about koncernbidrag, IL 35 kap, >90% ownership, directions, underskottsspärr, BAS 8820/8830 |
-| `references/312-regler.md` | Questions about 3:12, fåmansbolag, kvalificerade andelar, gränsbelopp, K10, löneunderlag, 2026 reform |
-| `references/ranteavdragsbegransningar.md` | Questions about ränteavdragsbegränsningar, EBITDA-regeln, förenklingsregeln 5 MSEK, N9, carry-forward |
-| `references/kapitalforsakring.md` | Questions about kapitalförsäkring in AB, avkastningsskatt, BAS 1385, uttag accounting, when KF beats direktägande |
-| `references/strategy-and-interactions.md` | Questions about optimal year-end sequence, lön vs utdelning, interaction matrix, Skatteverket audit triggers |
+## Critical distinctions
 
-Read multiple reference files when a question spans domains (common in tax planning).
+- **Periodiseringsfond for AB** must be booked as obeskattad reserv (formellt samband). For enskild firma, it is only in deklarationen. This skill covers AB.
+- **Överavskrivningar** create obeskattade reserver (BAS 2150). Do NOT confuse with periodiseringsfond (BAS 2110-2139).
+- **3:12-reglerna** apply to the physical person (delägare), not the company. The K10 is filed with INK1, not INK2.
+- **Kapitalförsäkring**: the AB does NOT pay avkastningsskatt on a Swedish KF. The insurance company does. The AB only books insättningar/uttag. Uttag (K2 8.4C/11.13A, räkenskapsår from 2026): intäkt up to the unrecognised värdeökning; only the excess reduces 1385. No skattefri grundnivå for AB (IL 42:45-49 applies to fysiska personer only).
+- **Ränteavdragsbegränsningar**: förenklingsregeln 5 MSEK applies per intressegemenskap, not per bolag.
 
-## Year-end decision sequence (optimal order)
+## Boundary with other skills
 
-1. **Överavskrivningar** — limited by asset base, calculate first
-2. **Periodiseringsfond** — 25% of remaining taxable income
-3. **Koncernbidrag** — equalize profits/losses across group
-4. **Löneuttag** — verify lönekrav for 3:12 (through inkomstår 2025)
-5. **Utdelning** — plan within gränsbelopp
-6. **Ränteavdragsbegränsningar** — verify compliance (interactions with steps 2-3)
-
-## Core instruments summary
-
-### Periodiseringsfond (IL 30 kap)
-- Max: 25% of skattemässigt överskott
-- Up to 6 parallel funds, each reversed within 6 tax years (FIFO)
-- Must be booked as obeskattad reserv (formellt samband)
-- Schablonintäkt: SLR (min 0.5%) x total funds, reported on INK2S 4.6a
-- BAS: 2110-2139 / 8811 (avsättning) / 8819 (återföring)
-
-### Överavskrivningar (IL 18 kap)
-- 30-regeln: pool written down to 70% of avskrivningsunderlag (declining balance)
-- 20-regeln: 20% straight-line per asset (full in 5 years)
-- Choose whichever yields lowest tax book value each year
-- Direktavdrag: assets < half PBB (29,400 kr for 2025)
-- BAS: 2150 / 8850
-
-### Koncernbidrag (IL 35 kap)
-- Transfers taxable income between group companies (>90% ownership)
-- Avdragsgillt for giver, skattepliktigt for receiver
-- Requires ownership for entire tax year + bolagsstämmobeslut
-- BAS: 8820 (mottaget) / 8830 (lämnat)
-
-### 3:12-reglerna (IL 56-57 kap)
-- Utdelning within gränsbelopp: 20% effective tax
-- Förenklingsregeln: 2.75 x IBB (209,550 kr for inkomstår 2025)
-- Huvudregeln: omkostnadsbelopp x (SLR+9%) + lönebaserat utrymme
-- K10 must be filed every year to preserve sparat utdelningsutrymme
-- **2026 reform**: grundbelopp 4 IBB, lönekrav abolished, 4%-spärr abolished, karenstid 4 years
-
-### Ränteavdragsbegränsningar (IL 24 kap)
-- EBITDA-regeln: negativt räntenetto max 30% of skattemässigt EBITDA
-- Förenklingsregeln: max 5 MSEK per intressegemenskap (not per bolag)
-- Carry-forward 6 years under EBITDA-regeln only
-- Key: periodiseringsfond avsättning increases EBITDA (good), koncernbidrag decreases it (bad)
-
-### Kapitalförsäkring
-- Sole schablonbeskattad sparform for AB (ISK only for fysiska personer)
-- Effective annual tax ~1.065% of kapitalunderlag (at SLR 2.55%)
-- Breakeven return vs direktägande: ~5.2%
-- Never for näringsbetingade andelar (already skattefria)
-- BAS: 1385
-- Uttag (K2 8.4C/11.13A, räkenskapsår from 2026): intäkt up to the unrecognised värdeökning; only the excess reduces 1385
-- No skattefri grundnivå for AB (IL 42:45–49 applies to fysiska personer only)
-
-## Interaction matrix (critical for year-end optimization)
-
-| Tool A | Affects | How |
-|--------|---------|-----|
-| Periodiseringsfond avsättning | EBITDA | Increases avdragsunderlag (good) |
-| Periodiseringsfond återföring | EBITDA | Decreases avdragsunderlag (bad) |
-| Koncernbidrag lämnat | EBITDA | Decreases avdragsunderlag (bad for giver) |
-| Överavskrivningar | Periodiseringsfond | Reduces taxable income, lowering max avsättning |
-| Löneuttag | 3:12 gränsbelopp | Meets lönekrav AND feeds löneunderlag |
-
-## Lön vs utdelning: effective tax burdens
-
-| Method | Combined burden |
-|--------|----------------|
-| Utdelning within gränsbelopp | ~36.5% |
-| Lön below brytpunkt | ~47-52% |
-| Lön above brytpunkt | ~58-63% |
-| Utdelning above gränsbelopp | ~52-58% |
-
-Optimal for most fåmansbolagsägare: lön up to pension ceiling (8.07 x IBB), then utdelning within gränsbelopp.
-
-## Obeskattade reserver split
-
-Both periodiseringsfonder and överavskrivningar: ~79.4% equity + ~20.6% latent tax.
-
-## Skatteflyktslagen (1995:575)
-
-Four cumulative conditions: väsentlig skatteförmån, taxpayer participation, tax was predominant reason, contravenes law's purpose. All four must be met.
+| Question type | Use this skill | Use other skill |
+|--------------|----------------|-----------------|
+| "How much periodiseringsfond should I set aside?" | Yes | |
+| "How do I book periodiseringsfond?" | | swedish-year-end-closing |
+| "Should I take lön or utdelning?" | Yes | |
+| "What VAT code for EU services?" | | swedish-vat |
+| "What is the deadline for årsredovisning?" | | swedish-year-end-closing |
+| "Should my enskild firma use räntefördelning or expansionsfond?" | | swedish-ef-skatteplanering |
+| "How do I minimize total tax on 2 MSEK profit?" | Yes | |

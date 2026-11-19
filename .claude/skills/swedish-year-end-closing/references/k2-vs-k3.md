@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # K2 vs K3: Implementation Differences for Year-End Closing
 
 <!-- toc -->
@@ -31,19 +32,19 @@
 - **2240** Avsättningar för uppskjutna skatter
 - **8940** Uppskjuten skatt
 - All marked **[Ej K2]** in BAS kontoplan
-- Obeskattade reserver analytically split: 79.4% equity / 20.6% latent skatteskuld
+- Obeskattade reserver: in the legal entity they are presented gross. K3 29.37: the deferred tax liability on them ska inte särredovisas, and bokslutsdispositioner are presented gross in the resultaträkning. The 79.4% equity / 20.6% deferred tax split belongs to koncernredovisning (K3 4.12: egetkapitalandelen in Annat eget kapital) and to analytical key ratios such as justerat eget kapital, never to the juridisk person's balansräkning
 
 **K2**: Never recognized. These accounts must be hidden/disabled.
 
 ## Internally developed intangible assets
 
-**K3**: May be capitalized using **1010–1019** (Utvecklingsutgifter), also [Ej K2].
+**K3**: May be capitalized using **1010-1019** (Utvecklingsutgifter), also [Ej K2].
 
 **K2**: All development costs must be expensed immediately. Only acquired intangibles may be recognized.
 
 ## Fair value measurement
 
-**K3**: Available for certain financial instruments and investment properties.
+**K3**: Financial instruments may be measured at fair value when the company chooses ÅRL 4:14a-14e (K3 kap. 12). Investment properties (förvaltningsfastigheter) are NOT measured at fair value: they follow kap. 17 (cost less depreciation); kap. 16 only requires a större företag to disclose their fair value (16.4), and a mindre företag need not apply kap. 16 at all (16.1).
 
 **K2**: Only historical cost (anskaffningsvärde). Försiktighetsprincip enforced strictly.
 
@@ -80,12 +81,12 @@
 
 **K2**: Simplified, template-based. Sufficient to state framework applied, depreciation periods, employees, pledges, contingencies.
 
-**K3**: Extensive: deferred tax analysis, critical judgments, estimation uncertainty, component depreciation details, segment reporting (if applicable).
+**K3**: More than K2, and much more for större företag: judgements and estimation uncertainty are större-only (8.4-8.5), as are comparatives in all notes (3.5) and the deferred-tax note (ÅRL 5:36). K3 has no segment reporting; ÅRL 5:47 requires a större företag to split nettoomsättning by verksamhetsgren and geografisk marknad when they differ significantly.
 
 ## Accounts to hide/disable in K2 mode
 
 The following BAS accounts are marked [Ej K2] and should be hidden or disabled:
-- **1010–1019** (Utvecklingsutgifter)
+- **1010-1019** (Utvecklingsutgifter)
 - **1081** (Pågående projekt, immateriella)
 - **1217** / **1227** (Finansiellt leasade maskiner respektive inventarier)
 - **1219** / **1229** (Ackumulerade avskrivningar)
@@ -93,11 +94,11 @@ The following BAS accounts are marked [Ej K2] and should be hidden or disabled:
 - **2240** (Avsättningar för uppskjutna skatter)
 - **8940** (Uppskjuten skatt)
 
-The list above follows BAS 2025. **BAS 2026** marks these accounts with # (not for K2): 1010–1019, 1370, 1518, 2089, 2092, 2096, 2240, 2448, 3940, 7940, 8290–8295, 8320–8325, 8417, 8450–8455, 8480, 8940. In BAS 2026, 1260/1269 are free accounts (finansiellt leasade tillgångar: 1217/1227) and 1081 has no # mark.
+The list above follows BAS 2025. **BAS 2026** marks these accounts with # (not for K2): 1010-1019, 1370, 1518, 2089, 2092, 2096, 2240, 2448, 3940, 7940, 8290-8295, 8320-8325, 8417, 8450-8455, 8480, 8940. In BAS 2026, 1260/1269 are free accounts (finansiellt leasade tillgångar: 1217/1227) and 1081 has no # mark.
 
 ## K2 changes from BFNAR 2025:2 (FY beginning after 2025-12-31)
 
-- **Scope (1.1A–1.1C)**: bostadsrättsföreningar and bostadsföreningar may not use K2 regardless of size (1.1A e). Also excluded (1.1A f–i): companies with foreign filialer, companies that acquired goods or services against aktierelaterade ersättningar, companies with issued skuldebrev that can be settled with egetkapitalinstrument or similar sammansatta finansiella instrument (e.g. convertibles), and companies holding kryptotillgångar (occasional use as payment excepted). 1.1B excludes companies with a material uppskjuten skatteskuld and companies whose buildings generate at least 75% of nettoomsättningen, but 1.1C lifts 1.1B for companies that exceed at most one of: >3 employees, >1.5 MSEK balansomslutning, >3 MSEK nettoomsättning (each of the last two years), and for companies that applied K2 the previous year and are not normally covered by 1.1B.
+- **Scope (1.1A-1.1C)**: bostadsrättsföreningar and bostadsföreningar may not use K2 regardless of size (1.1A e). Also excluded (1.1A f-i): companies with foreign filialer, companies that acquired goods or services against aktierelaterade ersättningar, companies with issued skuldebrev that can be settled with egetkapitalinstrument or similar sammansatta finansiella instrument (e.g. convertibles), and companies holding kryptotillgångar (occasional use as payment excepted). 1.1B excludes companies with a material uppskjuten skatteskuld and companies whose buildings generate at least 75% of nettoomsättningen, but 1.1C lifts 1.1B for companies that exceed at most one of: >3 employees, >1.5 MSEK balansomslutning, >3 MSEK nettoomsättning (each of the last two years), and for companies that applied K2 the previous year and are not normally covered by 1.1B.
 - **Accruals**: 7,000 SEK limit (2.4, 2.4A) and aggregate materiality (2.4B), see above.
 - **Balance sheet**: new post *Övriga immateriella anläggningstillgångar* (acquired tomträtter); *Kontokredit* replaces *Checkräkningskredit*.
 - **Tilläggsköpeskilling** on sale of inkråm (6.32A) or shares (8.4B): income in the year the amount is fixed.

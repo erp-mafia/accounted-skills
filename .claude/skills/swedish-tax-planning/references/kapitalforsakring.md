@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Kapitalförsäkring i bolagskontext
 
 ## Key rule: AB cannot open ISK
@@ -64,13 +65,13 @@ Additional KF advantages:
 - KF losses are **not avdragsgilla**, making it disadvantageous in declining markets
 - Placing kvalificerade andelar in KF is actively challenged by Skatteverket as skatteflykt
 
-## Skattefri grundnivå för ISK/KF — gäller bara fysiska personer
+## Skattefri grundnivå för ISK/KF: gäller bara fysiska personer
 
-Beslutad lag (IL 42 kap. 45–49 §§): **150 000 kr för 2025** (SFS 2024:1131) och **300 000 kr från 2026** (SFS 2024:1132).
+Beslutad lag (IL 42 kap. 45-49 §§): **150 000 kr för 2025** (SFS 2024:1131) och **300 000 kr från 2026** (SFS 2024:1132).
 
-- **Mekanism: avdrag i inkomstslaget kapital för fysiska personer.** Avdraget = schablonintäkten på ISK + underlaget för KF/PEPP (värde vid årets ingång + premier, premier under andra halvåret till halva värdet) × (SLR + 1 procentenhet, lägst 1,25 %). Avdraget får högst uppgå till 150 000 kr (2025) respektive 300 000 kr (2026–) × samma procentsats. ISK dras av i första hand.
+- **Mekanism: avdrag i inkomstslaget kapital för fysiska personer.** Avdraget = schablonintäkten på ISK + underlaget för KF/PEPP (värde vid årets ingång + premier, premier under andra halvåret till halva värdet) × (SLR + 1 procentenhet, lägst 1,25 %). Avdraget får högst uppgå till 150 000 kr (2025) respektive 300 000 kr (2026-) × samma procentsats. ISK dras av i första hand.
 - För KF tar försäkringsbolaget fortfarande ut avkastningsskatt på hela kapitalunderlaget; lättnaden kommer som avdrag i innehavarens inkomstdeklaration.
 - **Juridiska personer har ingen grundnivå.** AB-ägd KF beskattas enligt ovan (~1,065 % vid SLR 2,55 %) från första kronan. Dödsbon får avdraget bara för dödsåret (42:47).
 - För en privatperson blir sparande i ISK/KF upp till grundnivån i praktiken skattefritt, vilket påverkar jämförelsen med direktägt sparande privat men inte AB:ets kalkyl.
 
-Källa: IL 42 kap. 45–49 §§.
+Källa: IL 42 kap. 45-49 §§.

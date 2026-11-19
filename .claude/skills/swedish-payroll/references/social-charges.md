@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Sociala avgifter (Arbetsgivaravgifter)
 
 ## Component breakdown
@@ -20,9 +21,9 @@ Total: 31.42% (unchanged since 2009). Calculated on full gross with no cap.
 Check each employee's birth year against calendar year:
 
 - Born 1937 or earlier: 0% (no avgifter)
-- Pensionärsåldersgränsen (riktåldern) was 66 in 2024-2025 and rises to 67 from 2026. The reduced rate (only ålderspensionsavgift 10.21%) applies if the person reached the riktålder at year's start. For 2025: born 1938–1958. For 2026: born 1938–1958 (same cohort, since the threshold rose by 1 year alongside the calendar year).
-- Youth discount: the earlier temporary reduction for 19–23-year-olds (2021–2023) has expired.
-- Temporary youth reduction (compensation paid Apr 1, 2026 – Sep 30, 2027, Lag 2026:100): only ålderspensionsavgift plus half of the other avgifter, 20.81% in total, on compensation up to 25,000 SEK/month for people who at year start have turned 18 but not 23 (2026: born 2003–2007). The part above 25,000 SEK/month is charged at 31.42%.
+- Pensionärsåldersgränsen (riktåldern) was 66 in 2024-2025 and rises to 67 from 2026. The reduced rate (only ålderspensionsavgift 10.21%) applies if the person reached the riktålder at year's start. For 2025: born 1938-1958. For 2026: born 1938-1958 (same cohort, since the threshold rose by 1 year alongside the calendar year).
+- Youth discount: the earlier temporary reduction for 19-23-year-olds (2021-2023) has expired.
+- New temporary reduction (Apr 1, 2026 to Sep 30, 2027): only ålderspensionsavgift plus half of the other avgifter, 20.81% in total, on salary up to 25,000 SEK/month per individual per calendar month (Lag 2026:100); the part above 25,000 SEK/month is charged at 31.42%. Eligibility: at årets ingång (1 Jan) the employee must have **turned 18 but NOT turned 23**: i.e. ages 18-22 at year start (born 2003-2007 for tax year 2026, 2004-2008 for 2027). Statutory wording: *"personer som vid årets ingång har fyllt 18 men inte 23 år"* (Prop. 2025/26:66 / Lag om särskild beräkning av arbetsgivaravgifter och allmän löneavgift för personer som vid årets ingång har fyllt 18 men inte 23 år). The Riksdag betänkande title "19-23-åringar" describes the during-year age and is NOT the eligibility test: Skatteverket's AGI validator rejects 23-year-olds at year start.
 
 No avgifter required if total annual compensation from a single employer < 1,000 SEK.
 

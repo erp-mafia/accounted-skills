@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # 3:12-reglerna (Fåmansbolag Dividend Taxation)
 
 <!-- toc -->

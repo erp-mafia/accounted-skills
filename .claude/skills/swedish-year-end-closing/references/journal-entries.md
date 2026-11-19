@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Specific Closing Journal Entries (Bokslutstransaktioner)
 
 All entries dated on balance sheet date (e.g., 2025-12-31). These are the core entries a software system must generate.
@@ -136,12 +137,12 @@ Credit 2091  Balanserad vinst eller förlust
 ```
 
 ## New year opening: consolidate equity (Enskild firma)
-Zero all of 2011–2019 into 2010:
+Zero all of 2011-2019 into 2010:
 ```
 Debit  2010  Eget kapital (for net credits from sub-accounts)
 Credit 2011  Egna varuuttag
-Credit 2012  Avräkning skatter och avgifter (only in the K1 chart, BAS för förenklat årsbokslut; in BAS 2026 use 2013)
-Credit 2013  Övriga egna uttag
+Credit 2013  Övriga egna uttag (incl. ägarens egna skatter; some programs use a
+             non-standard 2012 for these, official BAS has no 2012)
 Debit  2017  Årets kapitaltillskott (reverse into 2010)
 Debit  2018  Övriga egna insättningar (reverse into 2010)
 Debit  2019  Årets resultat (reverse into 2010)

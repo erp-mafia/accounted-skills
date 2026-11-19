@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Periodiseringsfond (Tax Allocation Reserve)
 
 ## Legal basis
@@ -27,7 +28,7 @@ Funds set aside at a higher bolagsskatt are grossed up when reversed in a tax ye
 | Fund set aside in tax year beginning | Bolagsskatt then | Reversed at |
 |---|---|---|
 | Before 2019-01-01 | 22% | **106%** |
-| 2019–2020 | 21.4% | **104%** |
+| 2019-2020 | 21.4% | **104%** |
 | 2021 or later | 20.6% | **100%** (no uppräkning) |
 
 The uppräkning is reported on INK2S punkt 4.6d.

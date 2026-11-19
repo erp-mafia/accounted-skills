@@ -1,8 +1,7 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # BFL, BFNAR, and ÅRL Reference
 
 Detailed reference for Bokföringslagen (BFL 1999:1078), Bokföringsnämndens allmänna råd (BFNAR), and Årsredovisningslagen (ÅRL 1995:1554).
-
-
 
 ## Table of Contents
 1. BFL structure and key chapters
@@ -96,11 +95,12 @@ Every verifikation must have an underlag (kvitto, faktura, bankutdrag, avtal, et
 ### Multiple verification series
 BFL allows multiple verification series (e.g., "A" for supplier invoices, "B" for customer invoices, "K" for bank). Each series must have unbroken numbering within the räkenskapsår. This is common in practice and your software should support it.
 
-### Rättelser (5 kap 5§)
-- An incorrect bokföringspost must be corrected with a new verifikation
-- The original post must remain visible (no overwriting)
-- The correcting post must reference the original
-- Implement as: rättelsepost with a link/reference to the original verifikation
+### Rättelser (5 kap 5§ and 5 kap 9§)
+- The original post must remain visible (no silent overwriting), and it must be recorded when the rättelse was made and who made it
+- Two permitted tracks:
+  1. **Särskild rättelsepost**: a correcting verifikation with a link/reference to the original. Always allowed; the only track once the period is locked/closed or the bokföring has been relied upon (filed declarations, bokslut)
+  2. **Rättelse in the same verifikat**: strike-and-replace of lines with the struck originals kept readable, or correction of the verifikation's text/date (5 kap 9 §). Allowed in open, unlocked periods with an immutable who/when trail. This is the track Fortnox/Visma expose as "ändra verifikat"
+- When rättelse happens through a särskild rättelsepost, it must be easy to become aware of the rättelse when inspecting the corrected post ("utan svårighet gå att få kännedom om rättelsen")
 
 ## 5. Avslutning av bokföringen (BFL 6 kap)
 
@@ -135,7 +135,7 @@ BFL allows multiple verification series (e.g., "A" for supplier invoices, "B" fo
 - Main rule: stored in Sweden, and the equipment and systems needed to print it kept available in Sweden (7 kap 2§)
 - Electronic documents may be stored in another EU country, or in a non-EU country with equivalent legal instruments for mutual assistance, if (1) the location and every change of it is reported to Skatteverket, (2) Skatteverket or Tullverket get immediate electronic access on request, and (3) the information can be printed immediately in Sweden (7 kap 3a§)
 - Otherwise electronic storage abroad requires a permit from Skatteverket (7 kap 4§)
-- Paper verifikationer may be kept abroad only temporarily, for särskilda skäl (7 kap 3§; BFNAR 2013:2 8.5–8.11). If the information is transferred under 7 kap 6§, the paper may be destroyed abroad (8.5A, BFNAR 2024:1)
+- Paper verifikationer may be kept abroad only temporarily, for särskilda skäl (7 kap 3§; BFNAR 2013:2 8.5-8.11). If the information is transferred under 7 kap 6§, the paper may be destroyed abroad (8.5A, BFNAR 2024:1)
 - Must be producible to Skatteverket upon request within reasonable time
 
 ### What must be archived
@@ -222,7 +222,7 @@ A company is "större" if it exceeds at least 2 of 3 for each of the last 2 year
 
 ## 12. Systemdokumentation and behandlingshistorik
 
-### Systemdokumentation (BFNAR 2013:2 kap 9)
+### Systemdokumentation (BFNAR 2013:2 kap 9, punkt 9.1-9.15; kap 8 is arkivering)
 Must describe:
 - The bokföringssystem and how it works
 - The kontoplan used
@@ -232,8 +232,8 @@ Must describe:
 - Backup routines
 - Integration with other systems
 
-### Behandlingshistorik
-Must log:
+### Behandlingshistorik (BFNAR 2013:2 punkt 9.16; BFL 5 kap 11 §)
+Must log (and show registreringsdatum for every bokföringspost):
 - Automated processing (batch jobs, automated bokföring)
 - Changes to system settings that affect bokföring
 - User actions (who booked what, when)

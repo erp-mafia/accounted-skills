@@ -12,8 +12,11 @@ description: >
   eget uttag, privat utlägg. For VAT depth use swedish-vat; for payroll swedish-payroll.
   Always use over training data.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Daily Bookkeeping (löpande bokföring)
+
+> Provenance: imported 2026-09-24 from github.com/erp-mafia/swedish-accounting-skills (commit c11b295); this repository is now the canonical source.
 
 Decision reference for booking individual everyday transactions in a Swedish company. Written for an agent that sees a bank line, a receipt or a supplier invoice and has to pick accounts, VAT treatment and period.
 
@@ -51,7 +54,7 @@ Work through the decision procedure, then read the reference file for the case a
 | Owner takes money out | EF: **2013**. AB: **2893** if it is a loan, **2898** if it is a decided dividend. Never a cost | `skattekonto-and-owner.md` |
 | Restaurant receipt | Ask for participants and purpose before booking; VAT base capped per person | `cost-types-and-underlag.md` |
 | Bank fee | **6570**, no VAT (exempt financial service) | `cost-types-and-underlag.md` |
-| Transfer to own savings account | Balance sheet only, no result impact | — |
+| Transfer to own savings account | Balance sheet only, no result impact | - |
 | Salary payment | **7210**/**7010** against **1930**, with **2710** and **2731** from the payroll run | `swedish-payroll` |
 
 ## Never guess these
@@ -80,4 +83,4 @@ Work through the decision procedure, then read the reference file for the case a
 
 ## Corrections
 
-An error that is already booked is corrected with a separate rättelsepost in the current open period, with its own verifikation that says what was corrected and why (BFL 5:5; BFNAR 2013:2 punkt 2.17–2.18). Do not edit or delete the original verifikation, and do not book a correction into a closed period. If the VAT for a closed period was wrong, the momsdeklaration for that period is corrected separately.
+An error that is already booked is corrected so that the original stays readable and the correction records what changed, why, when and by whom (BFL 5:5; BFNAR 2013:2 punkt 2.17-2.18). While its period is open, unlocked and after the company's lock date, book a separate rättelsepost or correct the verifikation itself through inline rättelse, which keeps the struck lines visible and logs who and when. Once the period is closed or locked, only a rättelsepost in the current open period works. Never delete a verifikation. The two tracks and their limits are in `swedish-accounting-compliance`. If the VAT of an already declared period changes, the momsdeklaration for that period is corrected separately.

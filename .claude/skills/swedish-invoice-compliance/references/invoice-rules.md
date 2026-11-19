@@ -1,4 +1,5 @@
-# Swedish Invoice Compliance — Full Reference
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# Swedish Invoice Compliance: Full Reference
 
 <!-- toc -->
 **Contents**
@@ -48,13 +49,13 @@ A fullständig faktura must contain all fields per **17 kap 24§ ML (2023:200)**
 
 **Förskotts- och a conto-betalningar:** must be invoiced too (17 kap 14§); the payment date goes in p.8.
 
-**Reverse charge:** p.9–11 may be omitted if the invoice instead states the tax base with reference to the p.7 details (17 kap 25§).
+**Reverse charge:** p.9-11 may be omitted if the invoice instead states the tax base with reference to the p.7 details (17 kap 25§).
 
 **Löpnummerserie:** Must enable detection of missing invoices. Multiple series permitted (per unit, POS, etc.). Also required by BFL 5 kap 6§. Gaps or duplicates are a compliance red flag.
 
 ## 2. Förenklad faktura (simplified invoice)
 
-**ML 17 kap 26–28§**, **SKVFS 2024:16**.
+**ML 17 kap 26-28§**, **SKVFS 2024:16**.
 
 Threshold: total **≤ SEK 4,000 including VAT**.
 
@@ -69,12 +70,12 @@ Reduced content: date, seller ID (VAT/org number), description of goods/services
 ## 3. Time limits for issuing invoices
 
 - Domestic: no hard statutory deadline; "without undue delay" per god affärssed.
-- Intra-EU goods/services (main rule): **15th of month following delivery/performance** (17 kap 17–18§§).
+- Intra-EU goods/services (main rule): **15th of month following delivery/performance** (17 kap 17-18§§).
 - Construction services: **end of second month after performance** (17 kap 16§).
 
 ## 4. Electronic vs paper equivalence
 
-Electronic invoices = identical legal standing (2 kap 9–10§ ML). E-invoicing requires buyer consent (17 kap 20§). PDF by email is a legal faktura but not a structured e-faktura. Archive for **7 years** (BFL 7 kap). Since July 2024, paper originals may be destroyed immediately after digital transfer (amended 7 kap 6§ BFL).
+Electronic invoices = identical legal standing (2 kap 9-10§ ML). E-invoicing requires buyer consent (17 kap 20§). PDF by email is a legal faktura but not a structured e-faktura. Archive for **7 years** (BFL 7 kap). Since July 2024, paper originals may be destroyed immediately after digital transfer (amended 7 kap 6§ BFL).
 
 No specific language requirement in ML. VAT amounts must be in SEK if accounting currency is SEK. Skatteverket may request translations.
 
@@ -88,7 +89,7 @@ Incorrect original, goods returned, price reduction post-invoicing, partial/full
 
 ### Governing law
 
-**17 kap 22–23§ ML (2023:200)**.
+**17 kap 22-23§ ML (2023:200)**.
 
 ### Mandatory content
 
@@ -169,7 +170,7 @@ Mandatory header: `cbc:ID`, `cbc:IssueDate`, `cbc:InvoiceTypeCode` (380/381/389)
 | SE-R-001 | Swedish VAT numbers must be 14 characters (SE + 10 digits + 01) |
 | SE-R-005 | SE sellers must include "Godkänd för F-skatt" |
 | SE-R-006 | Valid VAT rates for SE sellers: 6%, 12%, 25% with category S |
-| SE-R-009 | Bankgiro Account ID: 7–8 characters |
+| SE-R-009 | Bankgiro Account ID: 7-8 characters |
 | SE-R-011 | Bankgiro uses PaymentMeansCode=30 |
 | SE-R-012 | Plusgiro uses PaymentMeansCode=30 |
 
@@ -187,7 +188,7 @@ VAT in UBL: `cac:PartyTaxScheme/cbc:CompanyID` = `SE556732170701`.
 | Löpnummer | BT-1 | `cbc:ID` |
 | Säljarens moms-nr | BT-31 | `cac:AccountingSupplierParty/.../cbc:CompanyID` |
 | Köparens moms-nr | BT-48 | `cac:AccountingCustomerParty/.../cbc:CompanyID` |
-| Namn+adress (säljare) | BT-27, BT-35–39 | `cac:AccountingSupplierParty` |
+| Namn+adress (säljare) | BT-27, BT-35-39 | `cac:AccountingSupplierParty` |
 | Varornas mängd+art | BT-129, BT-153 | `cac:InvoiceLine/cbc:InvoicedQuantity` + `cac:Item/cbc:Name` |
 | Leveransdatum | BT-72 | `cac:InvoicePeriod/cbc:StartDate` or `cbc:TaxPointDate` (BT-7) |
 | Beskattningsunderlag per skattesats | BT-116 | `cac:TaxSubtotal/cbc:TaxableAmount` |
@@ -204,7 +205,7 @@ B2B voluntary as of September 2026; no domestic B2B mandate has been decided. Mi
 
 ### Fakturamodellen
 
-Company invoices full amount, shows ROT/RUT deduction, reduces "att betala." Customer pays reduced amount **electronically** (cash disqualified since 1 Jan 2020). Company applies to Skatteverket via "Rot och rut – företag." SKV pays company directly (~10 days). **F-skatt required** per HUSFL 6–9§§.
+Company invoices full amount, shows ROT/RUT deduction, reduces "att betala." Customer pays reduced amount **electronically** (cash disqualified since 1 Jan 2020). Company applies to Skatteverket via "Rot och rut: företag." SKV pays company directly (~10 days). **F-skatt required** per HUSFL 6-9§§.
 
 ### Required invoice fields
 
@@ -217,15 +218,15 @@ Company invoices full amount, shows ROT/RUT deduction, reduces "att betala." Cus
 7. Total excl/incl moms with moms amount
 8. Calculated skattereduktion amount
 
-### Deduction rates and caps (2024–2026)
+### Deduction rates and caps (2024-2026)
 
 | Parameter | ROT | RUT |
 |---|---|---|
 | Standard % | 30% of labor incl. moms | 50% of labor incl. moms |
 | Standard max/person/year | 50,000 SEK | 75,000 SEK |
 | Standard combined max | 75,000 SEK (ROT capped at 50k within) | |
-| 2024 H2 (Jul–Dec) | Max raised to 75k, caps separated, total possible 150k | |
-| 2025 (12 May–31 Dec) | ROT % raised to **50%** (Betänkande 2024/25:FiU32) | 50% unchanged |
+| 2024 H2 (Jul-Dec) | Max raised to 75k, caps separated, total possible 150k | |
+| 2025 (12 May-31 Dec) | ROT % raised to **50%** (Betänkande 2024/25:FiU32) | 50% unchanged |
 | 2026 | Standard 30%/50% rules resume | |
 
 ### BAS journal entries
@@ -237,7 +238,7 @@ Example: 18,000 SEK arbetskostnad = 22,500 inkl. moms (25%), ROT 30% = 6,750 SEK
 | Account | Debit | Credit |
 |---|---|---|
 | 1511 Kundfordringar (customer portion) | 23,875 | |
-| 1513 Kundfordringar – delad faktura (SKV) | 6,750 | |
+| 1513 Kundfordringar: delad faktura (SKV) | 6,750 | |
 | 3010 Försäljning | | 24,500 |
 | 2610 Utgående moms 25% | | 6,125 |
 
@@ -264,22 +265,22 @@ Invoice must include buyer's VAT number and charge **no VAT**.
 
 ### Scenario reference
 
-**Domestic construction (byggtjänster) — ML 16 kap 13§:**
+**Domestic construction (byggtjänster): ML 16 kap 13§:**
 Applies when buyer is taxable person who not only temporarily provides construction services.
 Seller: Box 41. Buyer: Box 24, output VAT Box 30, input VAT Box 48.
 
-**EU services (B2B main rule) — ML 16 kap 9§ + 6 kap 33§:**
+**EU services (B2B main rule): ML 16 kap 9§ + 6 kap 33§:**
 Swedish business buys services from EU seller under main rule.
-Buyer: Box 21, output VAT Box 30–32, input VAT Box 48. Seller: Box 39 + periodisk sammanställning.
+Buyer: Box 21, output VAT Box 30-32, input VAT Box 48. Seller: Box 39 + periodisk sammanställning.
 
-**Intra-EU goods — ML 10 kap 42§:**
+**Intra-EU goods: ML 10 kap 42§:**
 Text: "Unionsintern leverans" or ref to Article 138 Directive 2006/112/EC. Both VAT numbers required.
-Seller: Box 35 + periodisk sammanställning. Buyer: Box 20, output VAT Box 30–32, input VAT Box 48.
+Seller: Box 35 + periodisk sammanställning. Buyer: Box 20, output VAT Box 30-32, input VAT Box 48.
 
-**Electronics >100k SEK — ML 16 kap 16§:**
+**Electronics >100k SEK: ML 16 kap 16§:**
 Mobile phones, integrated circuits, game consoles, tablets, laptops when invoice excl. VAT > SEK 100,000. In effect since 1 April 2021.
 
-**Other:** Scrap metal/waste (16:14), CO₂ allowances (16:15), gold (16:11–12). Full scope: 16 kap 6–17§§.
+**Other:** Scrap metal/waste (16:14), CO₂ allowances (16:15), gold (16:11-12). Full scope: 16 kap 6-17§§.
 
 ### BAS accounts for reverse charge
 
@@ -303,7 +304,7 @@ Mobile phones, integrated circuits, game consoles, tablets, laptops when invoice
 
 Invoicing in any currency is permitted. Per **ML 17 kap 29§**: VAT amount must be in the company's redovisningsvaluta. For SEK companies: VAT in **both invoice currency and SEK**.
 
-### Exchange rate sources (ML 8 kap 21–23§)
+### Exchange rate sources (ML 8 kap 21-23§)
 
 Two permitted sources (choose one consistently):
 1. Mid-rate (mittkurs) from **Nasdaq OMX Stockholm AB** (published on Riksbanken's website)
@@ -331,14 +332,14 @@ Decision: customer receivables (1510) and supplier payables (2440) → 3960/7960
 
 ### OCR format
 
-2–25 digit numeric reference. Last digit = check digit via **Luhn algorithm (Modulus 10)**. Recommended length: 5–15 digits. Typically encodes invoice number and/or customer number.
+2-25 digit numeric reference. Last digit = check digit via **Luhn algorithm (Modulus 10)**. Recommended length: 5-15 digits. Typically encodes invoice number and/or customer number.
 
 ### Control levels
 
 | Level | Behavior |
 |---|---|
-| OCR 1 | Soft — warning only |
-| OCR 2 | Hard — payment rejected if wrong |
+| OCR 1 | Soft: warning only |
+| OCR 2 | Hard: payment rejected if wrong |
 | OCR 3 | Hard + variable length control |
 | OCR 4 | Hard + fixed length |
 
@@ -354,25 +355,25 @@ Business submits payment files to Bankgirot. Customer right to request repayment
 
 ### Denied VAT deductions
 
-Skatteverket can deny avdragsrätt when invoices lack mandatory fields per 17 kap 24–28§. Per EU case law (C-272/13): purely formal defects are correctable ("healable"). Material requirements (goods/services in VAT-liable business) are primary; formal are secondary but necessary. Missing VAT amount entirely → new corrected invoice required, deduction only from corrected invoice period.
+Skatteverket can deny avdragsrätt when invoices lack mandatory fields per 17 kap 24-28§. Per EU case law (C-272/13): purely formal defects are correctable ("healable"). Material requirements (goods/services in VAT-liable business) are primary; formal are secondary but necessary. Missing VAT amount entirely → new corrected invoice required, deduction only from corrected invoice period.
 
 ### Skattetillägg (SFL 49 kap)
 
 | Situation | Rate |
 |---|---|
-| Oriktig uppgift — income tax | 40% |
-| Oriktig uppgift — VAT/employer contributions | 20% |
-| Periodization error — income tax | 10% |
-| Periodization error — VAT (≤4 months, ≤3-month periods) | 2% |
-| Periodization error — VAT (annual or >4 months) | 5% |
+| Oriktig uppgift: income tax | 40% |
+| Oriktig uppgift: VAT/employer contributions | 20% |
+| Periodization error: income tax | 10% |
+| Periodization error: VAT (≤4 months, ≤3-month periods) | 2% |
+| Periodization error: VAT (annual or >4 months) | 5% |
 
 Deducting ingående moms on non-compliant invoices: **20% skattetillägg**. Felaktigt debiterad moms: buyer gets no deduction; 20% reduced to 1/4 if seller reported and paid. Voluntary correction before investigation normally avoids skattetillägg.
 
 ### Criminal consequences
 
 BFL: all transactions require verifikationer (5 kap 7§), archived 7 years (7 kap).
-Bokföringsbrott (11 kap 5§ BrB): up to 2 years, grovt 6 months–6 years.
-False invoices: skattebrott (Skattebrottslagen) up to 2 years, grovt 6 months–6 years, plus potential penningtvättsbrott.
+Bokföringsbrott (11 kap 5§ BrB): up to 2 years, grovt 6 months-6 years.
+False invoices: skattebrott (Skattebrottslagen) up to 2 years, grovt 6 months-6 years, plus potential penningtvättsbrott.
 
 ## 14. BAS kontoplan mapping
 
@@ -383,7 +384,7 @@ False invoices: skattebrott (Skattebrottslagen) up to 2 years, grovt 6 months–
 | 1510 | Kundfordringar (main/group) |
 | 1511 | Kundfordringar (sub / customer portion split) |
 | 1512 | Belånade kundfordringar (factoring) |
-| 1513 | Kundfordringar – delad faktura (ROT/RUT SKV) |
+| 1513 | Kundfordringar: delad faktura (ROT/RUT SKV) |
 | 1516 | Tvistiga kundfordringar |
 | 1516 | Tvistiga kundfordringar |
 | 1518 | Ej reskontraförda kundfordringar |
@@ -391,7 +392,7 @@ False invoices: skattebrott (Skattebrottslagen) up to 2 years, grovt 6 months–
 
 (BAS 2026 has no 1515; older charts used it for osäkra kundfordringar.)
 
-### Revenue (30xx–34xx)
+### Revenue (30xx-34xx)
 
 | Account | Name |
 |---|---|
@@ -435,37 +436,53 @@ VAT recovery on bad debts permitted under **ML 7 kap 43§** when loss is konstat
 |---|---|---|
 | Faktureringsavgift | 3540 | 25% VAT |
 | Öresavrundning | 3740 | No VAT |
-| Påminnelseavgift | No dedicated BAS 2026 account — **3540** Faktureringsavgifter or a free account in group 39 | No VAT |
+| Påminnelseavgift | No dedicated BAS 2026 account: **3540** Faktureringsavgifter or a free account in group 39 | No VAT |
 | Dröjsmålsränta | 8313/8310 | No VAT (financial income) |
 
-Påminnelseavgift (no VAT): BAS 2026 has no dedicated account — use **3540** Faktureringsavgifter or a free account in group 39.
+Påminnelseavgift (no VAT): BAS 2026 has no dedicated account: use **3540** Faktureringsavgifter or a free account in group 39.
+
+### Invoices to private persons: konsumentkreditlag (2026:1011), from 20 November 2026
+
+An invoice a consumer pays afterwards is a credit (betalningsanstånd, 1 kap. 3 §). The act replaced konsumentkreditlagen (2010:1846) on 2026-11-20; agreements entered into before that day stay under the old act (övergångsbestämmelserna p. 3). Source: SFS 2026:1011, prop. 2025/26:223, bet. 2025/26:CU26.
+
+The invoice stays outside credit assessment, pre-contract information, the documented credit agreement and the right of withdrawal only as a **särskild fakturakredit** (definition 1 kap. 3 §; exemptions 2 kap. 9 §, 3 kap. 19 §, 4 kap. 21 §, 5 kap. 7 §, 6 kap. 13 §). All three must hold:
+
+| Condition | Meaning for the invoice |
+|---|---|
+| The seller gives the credit itself | Not a payment company or financier as creditor |
+| No kreditkostnad | No interest and no fakturaavgift, aviavgift or similar charge for paying by invoice, wherever it stands on the invoice |
+| Due within 50 days of delivery | Counted from the day the goods or service were delivered. 14 days, and the claim may not be sold meanwhile, when the seller is NOT a mindre företag (250 employees or more, turnover above EUR 50 million) and the sale is a distance contract made online |
+
+Not credit costs, so they do not break the exemption (prop. 2025/26:223, kommentaren till 1 kap. 3 §): **dröjsmålsränta** and the **påminnelseavgift** and other costs under lag (1981:739) om ersättning för inkassokostnader (which must be agreed in advance). Limits that apply to a särskild fakturakredit too: dröjsmålsränta at most the reference rate + 20 percentage points, and no compensation for the delay other than dröjsmålsränta (4 kap. 4 §).
+
+Outside the exemption the act applies in full. Accounted refuses such an invoice to a customer of type `individual` dated 2026-11-20 or later (`INVOICE_CONSUMER_CREDIT_TERMS_TOO_LONG`, `INVOICE_CONSUMER_CREDIT_FEE`; `lib/invoices/consumer-credit.ts`). Invoices to businesses are not affected.
 
 ## 15. Key law references
 
 | Topic | Current law | Old law |
 |---|---|---|
 | Invoice content | ML 17 kap 24§ (2023:200) | ML 11 kap 8§ (1994:200) |
-| Simplified invoice | ML 17 kap 26–28§ | ML 11 kap 9§ |
-| Small-business exemption invoice | ML 18 kap 41§, 17 kap 26§ p.4, 28§ p.6 | — |
-| Credit note | ML 17 kap 22–23§ | ML 11 kap 10§ |
+| Simplified invoice | ML 17 kap 26-28§ | ML 11 kap 9§ |
+| Small-business exemption invoice | ML 18 kap 41§, 17 kap 26§ p.4, 28§ p.6 | - |
+| Credit note | ML 17 kap 22-23§ | ML 11 kap 10§ |
 | Self-billing | ML 17 kap 15§ | ML 11 kap 4§ |
-| Reverse charge | ML 16 kap 6–17§§ | ML 1 kap 2§ st.4 |
-| Currency conversion | ML 8 kap 21–23§ | ML 7 kap 7a§ |
-| E-invoice B2G | Lag (2018:1277) | — |
-| ROT/RUT | HUSFL (2009:194) 6–9§§ | — |
-| Invoice archiving | BFL 7 kap | — |
-| Skattetillägg | SFL 49 kap | — |
+| Reverse charge | ML 16 kap 6-17§§ | ML 1 kap 2§ st.4 |
+| Currency conversion | ML 8 kap 21-23§ | ML 7 kap 7a§ |
+| E-invoice B2G | Lag (2018:1277) | - |
+| ROT/RUT | HUSFL (2009:194) 6-9§§ | - |
+| Invoice archiving | BFL 7 kap | - |
+| Skattetillägg | SFL 49 kap | - |
 
 ## 16. Time-dependent parameters
 
 These values change. Always verify against the sections above or search current rates:
 
 - Förenklad faktura threshold: **SEK 4,000** (SKVFS 2024:16)
-- ROT deduction %: 30% standard, 50% May–Dec 2025
+- ROT deduction %: 30% standard, 50% May-Dec 2025
 - RUT deduction %: 50%
 - ROT max/person/year: 50,000 SEK (75,000 in 2024 H2)
 - RUT max/person/year: 75,000 SEK
 - Combined max: 75,000 SEK (separated in 2024 H2)
 - Electronics RC threshold: 100,000 SEK excl. VAT per invoice
-- Skattetillägg VAT: 20% (periodization: 2–5%)
+- Skattetillägg VAT: 20% (periodization: 2-5%)
 - Archive retention: 7 years (BFL 7 kap)

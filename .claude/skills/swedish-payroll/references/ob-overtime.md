@@ -1,184 +1,81 @@
-# OB-tillägg, övertid, mertid
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# OB-tillägg and Övertid (Unsocial Hours and Overtime)
 
-Reference för obekväm arbetstid (OB), övertid, mertid och kompensationsledighet i svensk lönehantering.
+## OB-tillägg is contractual, not statutory
 
-<!-- toc -->
-**Contents**
+No Swedish law sets OB rates. OB-tillägg (obekväm arbetstid) comes from kollektivavtal or the individual employment contract. Arbetstidslagen (1982:673) limits WHEN and HOW MUCH people may work; it says nothing about premium pay. A company without a CBA has no OB obligation unless its contracts create one, so payroll software must treat every rate, window, and divisor as configuration, never as a statutory constant.
 
-- [Legal basis](#legal-basis)
-- [Övertid](#övertid)
-- [Mertid (för deltid)](#mertid-för-deltid)
-- [OB-tillägg (obekväm arbetstid)](#ob-tillägg-obekväm-arbetstid)
-- [Skatt och avgifter](#skatt-och-avgifter)
-- [BAS-kontering](#bas-kontering)
-- [Vanliga implementationsfallgropar](#vanliga-implementationsfallgropar)
-- [Cross-references](#cross-references)
+### Common CBA window shapes (examples, always agreement-specific)
 
-<!-- /toc -->
+| Window | Typical span | Item type |
+|---|---|---|
+| Vardag kväll | weekday 18:00-22:00 (some CBAs 19:00-22:00) | ob_weekday_evening |
+| Natt | 22:00-06:00 (wraps midnight) | ob_night |
+| Helg | Fri/Sat evening through Sun 24:00 | ob_weekend |
+| Helgdag/storhelg | actual public holidays, highest rates | ob_holiday |
 
-## Legal basis
+### Common CBA formula shapes
 
-- **Arbetstidslagen (1982:673)** — tidsgränser för övertid och mertid (semitvingande; kollektivavtal kan avvika).
-- **Semesterlagen (1977:480)** — semestervärde av övertidsersättning.
-- **Inkomstskattelagen (1999:1229) 11 kap** — skatteplikt på lönetillägg.
-- **Kollektivavtal (CBA)** — den faktiska procentsatsen och beräkningsmetoden för OB och övertid kommer nästan uteslutande från branschavtal, inte lag. Lag ger ramarna.
+Two families, both agreement-specific:
 
-## Övertid
+- Percent of hourly wage: OB hour paid at base hourly rate × premium percent (e.g. 20%, 50%, 70%, 100%).
+- Monthly-salary divisors: OB hour paid at månadslön / divisor. Divisors like 600, 400, 300, 150 appear in white-collar CBAs, with smaller divisors (higher pay) for nights, weekends, and storhelg. These are CBA figures, not law: never hard-code them.
 
-### Definition
+## Övertid vs mertid
 
-Arbete utöver ordinarie arbetstid (heltid = ofta 40 tim/vecka, men kan vara 38 eller 36 enligt avtal). För deltid skiljs **mertid** (upp till heltid) och **övertid** (utöver heltid).
+- Övertid: time beyond ordinary full-time hours. CBAs commonly distinguish enkel övertid (weekday daytime, often ~50% premium or månadslön/94 per hour) from kvalificerad övertid (nights/weekends/holidays, often ~100% premium or månadslön/72 per hour). Divisor values vary by agreement.
+- Mertid: a part-time employee's hours up to the full-time ordinary schedule. Usually plain hourly pay, sometimes a small premium; becomes övertid only past full-time hours.
+- Kompensationsledighet: CBAs may allow overtime to be compensated as time off (commonly 1.5 or 2 hours per overtime hour) instead of pay.
+- Contracted-away overtime: managers and salaried staff often trade övertidsersättning for higher salary and/or extra vacation days; then no overtime lines are generated at all.
 
-### Arbetstidslagens tak (när inget kollektivavtal gäller)
+## Arbetstidslagen (1982:673) limits
 
-| Period | Max övertid |
+Limits govern hours, not pay; exceeding them is a sanction issue (sanktionsavgift via Arbetsmiljöverket), but payroll should be able to surface them:
+
+- Ordinary working time: max 40 h/week on average (5 §).
+- Allmän övertid: max 200 h/calendar year, and max 48 h per 4-week period or 50 h per calendar month (8 §).
+- Extra övertid: up to 150 h/year more when special reasons exist and the situation could not reasonably be solved otherwise (8 a §; no dispensation needed), i.e. 350 h/year in total. Allmän and extra övertid together may still not exceed 48 h per 4-week period or 50 h per calendar month.
+- Nödfallsövertid (9 §): may be taken to the extent the circumstances require.
+- Allmän mertid: max 200 h/calendar year for part-time employees (10 §); extra mertid up to 150 h more under special reasons (10 a §), with the same combined 48 h/4 weeks or 50 h/month cap.
+- Sammanlagd arbetstid: max 48 h per 7-day period on average over at most four months (10 b §).
+- The yearly caps run per calendar year, not per employment year: keep a running count.
+- Dygnsvila: 11 consecutive hours per 24-hour period; night rest should include 24:00-05:00 (13 §).
+- Veckovila: 36 consecutive hours per 7-day period (14 §).
+- EU Working Time Directive backstop: max 48 h/week average over 4 months, total time including overtime.
+
+ATL is semi-dispositive: CBAs may deviate from most limits, but only within the EU directive's frame.
+
+## How this codebase's engine models premiums
+
+`lib/salary/shift-premium-engine.ts` turns worked days plus configured rules into salary line items:
+
+- A rule = day_of_week set + start/end time window + premium_percent + item_type + priority. Windows with end <= start wrap past midnight (22:00-06:00 covers both halves).
+- Item types: `overtime_50`, `overtime_100`, `ob_weekday_evening`, `ob_weekend`, `ob_night`, `ob_holiday`.
+- `ob_holiday` rules fire only when the worked date is an actual Swedish public holiday (calendar-driven via `isSwedishHolidayISO`); a regular Sunday is not a helgdag, a midweek Midsommarafton is.
+- Every worked minute is awarded to exactly one rule: highest priority wins, ties broken by higher premium_percent, so totals never double-count.
+- Amount per line = base hourly rate × hours × premium_percent / 100, rounded per the monetary rule (`Math.round(x * 100) / 100`).
+- Worked-day rows without explicit start_time/end_time fall back to an assumed 08:00-17:00 shift, so pure-night or pure-weekend rules never match legacy hours-only rows. Exact shift windows are required for correct night/weekend OB.
+
+## Payroll treatment
+
+OB-tillägg and övertidsersättning are ordinary kontant bruttolön:
+
+- Subject to skatteavdrag (part of the tax-table lookup base) and arbetsgivaravgifter.
+- Semesterlönegrundande (raises semesterlön under procentregeln, SemL 16 b §, and counts as rörlig lönedel under sammalöneregeln, SemL 16 a § tredje stycket) and sjuklönegrundande (day 2-14 sjuklön is 80% of the pay and benefits actually lost, SjLL 6 §, which can include overtime the employee would have worked; a CBA may set the detailed calculation, SjLL 2 § andra stycket).
+- Kompensationsledighet taken as time off is not semesterlönegrundande the way paid premiums are: only the pay actually paid counts.
+- OB is normally computed on the base hourly wage, not on top of the overtime premium (some CBAs allow stacking).
+- Beredskap (on-call): CBAs typically pay a beredskapsersättning per on-call hour, and on utkallning full hourly pay plus any overtime premium from the minute work starts. Some CBAs pay a separate skifttillägg in addition to or instead of OB.
+- Hourly divisors vary by CBA (175, 173.33 = 40 × 52 / 12, or other monthly bases): configure per agreement, never hard-code.
+- PGI-grundande like any cash wage.
+- AGI: reported inside kontant bruttolön (FK011) on the individual statement; there is no separate fältkod for OB or övertid.
+
+## BAS accounts
+
+Booked on the same wage account as base salary and differentiated by line text on the verifikat and payslip (this codebase maps all premium item types to the base wage account):
+
+| Account | Purpose |
 |---|---|
-| Per fyraveckorsperiod | 48 timmar |
-| eller per kalendermånad | 50 timmar |
-| Per kalenderår | **200 timmar** (allmän övertid) |
-| Per kalenderår + extra övertid (särskilda skäl) | + 150 timmar = **350 timmar** |
-
-ATL 8 § (allmän övertid) + 8 a § (extra övertid: kräver särskilda skäl och att situationen inte gått att lösa på annat rimligt sätt; ingen dispens behövs). Allmän och extra övertid får tillsammans inte överstiga 48 timmar per fyraveckorsperiod eller 50 timmar per kalendermånad. Nödfallsövertid (ATL 9 §) får tas ut i den utsträckning förhållandena kräver. Den sammanlagda arbetstiden får vara högst 48 timmar per sjudagarsperiod i genomsnitt under högst fyra månader (ATL 10 b §). Kollektivavtal kan höja eller sänka dessa nivåer.
-
-### Övertidsersättning (typiska CBA-nivåer)
-
-Lagen kräver INTE en specifik övertidsersättning — bara att övertid är begränsad. Kompensation följer kollektivavtal eller anställningsavtal:
-
-| Tidsfönster | Vanlig ersättning (Unionen, Handels, Kommunal m.fl.) |
-|---|---|
-| Måndag–fredag 06.00–20.00, första 2 tim efter ordinarie arbetstid | **50 %** ovanpå timlönen |
-| Måndag–fredag övrig tid + lördag/söndag/helg | **100 %** (kvalificerad övertid) |
-| Allmänna helgdagar och natt (efter 22.00) | **100 %** ofta + OB-tillägg ovanpå |
-
-### Beräkningsformel
-
-```
-timlön = (månadslön × 12) / (52 × ordinarie_arbetstid_per_vecka)
-# Vanlig divisor enligt CBA: 175 tim/månad eller 40 × 52 ÷ 12 = 173,33 (varieras)
-övertidsersättning_per_tim = timlön × (1 + övertidsprocent)
-
-# Exempel: månadslön 32 000 kr, 40 tim/vecka, övertid 50 %
-timlön = 32 000 / 175 = 182,86 kr
-övertid_50 = 182,86 × 1,50 = 274,29 kr/tim
-```
-
-**Tjänsteman som "köpt bort övertid"** har ofta extra 5 semesterdagar eller högre lön i stället för rätt till övertidsersättning. Anställningsavtalet styr.
-
-### Kompensationsledighet vs övertidsersättning
-
-Övertid kan ersättas med **ledighet i stället för pengar** (komp-tid) om arbetsgivaren och arbetstagaren är överens. Vanliga växlingsfaktorer:
-
-| Övertidstyp | Tim för tim → komp-tid |
-|---|---|
-| Enkel övertid (50 %) | 1 tim arbetad → 1,5 tim ledig |
-| Kvalificerad övertid (100 %) | 1 tim arbetad → 2,0 tim ledig |
-
-Komp-tid är **inte** semesterlönegrundande på samma sätt som pengar; semesterlöneskuld räknas på den faktiska lönen.
-
-## Mertid (för deltid)
-
-### Definition
-
-Arbete utöver avtalad arbetstid men inom ordinarie arbetstidens ram (dvs. inte över heltid). Endast för **deltidsanställda** (under heltid enligt CBA).
-
-### Tak enligt ATL 10–10 a §§
-
-- **Allmän mertid** (10 §): max 200 tim/år
-- **Extra mertid** (10 a §, särskilda skäl): + 150 tim → totalt **350 tim/år**. Allmän och extra mertid får tillsammans inte överstiga 48 tim per fyraveckorsperiod eller 50 tim per kalendermånad.
-
-### Ersättning
-
-Mertid betalas normalt med **vanlig timlön** (inget övertidstillägg). I vissa CBA dock 50 %-tillägg vid mertid som överstiger heltid.
-
-## OB-tillägg (obekväm arbetstid)
-
-### Definition
-
-Tillägg utöver grundlön för arbete på obekväma tider — kvällar, nätter, helger, helgdagar. **Inget lagstadgat krav**, men nästan alla branschavtal har OB.
-
-### Typiska OB-nivåer (varierar mellan CBA)
-
-| Tidsfönster | Vanlig OB-nivå |
-|---|---|
-| Vardagar 18.00–22.00 (OB1) | ~25 % av timlönen som extra |
-| Vardagar 22.00–06.00 (OB2/natt-OB) | ~50–75 % |
-| Lördag 06.00–24.00 | ~50 % |
-| Söndag + helgdag | ~75–100 % |
-| Storhelger (jul, midsommar, etc.) | ~150 % |
-
-**Skiftarbete** har ofta separat skifttillägg utöver eller i stället för OB.
-
-### Beredskap (jour)
-
-För personal som har **beredskapstid** (väntar på utkallning, t.ex. IT-jour, läkare i bakjour) gäller ofta:
-- Beredskapsersättning per beredskapstimme (t.ex. 20–30 % av timlön)
-- Vid utkallning: full timlön + eventuellt övertidstillägg från den minut man påbörjar arbetet
-
-## Skatt och avgifter
-
-### OB och övertid är skattepliktig lön
-
-Båda räknas som **kontant bruttolön** i skattetabellsumma. Arbetsgivaravgifter 31,42 % och eventuell preliminärskatt dras som på vanlig lön. Inga undantag.
-
-### AGI-rapportering
-
-OB och övertid rapporteras inom **fältkod 011 "Kontant ersättning"** i AGI individrad. Ingen separat rad — det är samma bruttolöneflöde.
-
-### Semesterlönegrundande
-
-Övertidsersättning **är** semesterlönegrundande. Den ingår i lönesumman för procentregeln (12 %, SemL 16 b §) och räknas som rörlig lönedel (12 %) vid sammalöneregeln (SemL 16 a § tredje stycket). OB är också semestergrundande.
-
-**Komp-tid (ledighet i stället för pengar) är INTE semesterlönegrundande** på samma sätt — bara den faktiska utbetalda lönen räknas.
-
-## BAS-kontering
-
-| BAS-konto | Användning |
-|---|---|
-| **7010** | Löner till kollektivanställda (inkl. OB och övertid för dem) |
-| **7010** eller ett fritt konto i gruppen (t.ex. 7014) | Rörliga lönedelar — BAS 2026 har inget särskilt OB-konto, många bolag specialnoterar OB och övertid på ett eget konto för analys |
-| **7210** | Löner till tjänstemän och företagsledare (inkl. övertid för dem som ej köpt bort) |
-| **7210** eller ett fritt konto i gruppen (t.ex. 7214) | OB-tillägg, övertidsersättning tjänstemän (7212 är vinstandelar i BAS 2026, inte OB) |
-| **2710** | Personalskatt (kredit, dras vid utbetalning) |
-| **2730** | Arbetsgivaravgifter skuld (kredit, beräknas på OB + övertid 31,42 %) |
-| **2920** | Upplupna semesterlöner (kredit, växer med 12 % av OB + övertid) |
-| **7510** | Arbetsgivaravgifter (debet, kostnadsföring av 31,42 % på OB + övertid) |
-| **7090** / **7290** | Förändring av semesterlöneskuld (kollektivanställda / tjänstemän) |
-
-### Exempel-bokning (tjänsteman 32 000 kr/mån + 5 timmar övertid 50 %)
-
-```
-Övertid: 5 × 274,29 ≈ 1 371 kr brutto
-Bruttolön totalt: 33 371 kr
-
-Bokning (utbetalning):
-Debit  7210 Löner tjänstemän         32 000
-Debit  7212 Övertidsersättning        1 371
-Credit 2710 Personalskatt            (skatteberäkning på 33 371)
-Credit 1930 Bank                     (nettolön)
-
-Arbetsgivaravgifter på övertid (31,42 % × 1 371):
-Debit  7510 Arbetsgivaravgifter          431
-Credit 2730 Arb.giv.avg. skuld           431
-
-Semesterlöneskuld (12 % × 1 371):
-Debit  7290 Förändring sem.löneskuld     165
-Credit 2920 Upplupna semesterlöner       165
-```
-
-## Vanliga implementationsfallgropar
-
-1. **Timlönsdivisorn varierar mellan CBA** — vissa använder 175, andra 173,33, andra månadsbaserad (160 × 12). Hårdkoda inte; konfigurera per anställningsavtal.
-2. **OB-tillägg på övertidstillägg** — OB räknas normalt på *grundtimlönen*, inte på övertidsersättningen. Vissa CBA tillåter staplade tillägg.
-3. **Komp-tid och semesterlön** — komp-tid är inte semestergrundande i sig, men om komp-tiden tas ut som ledighet och vid uttagstillfället utbetalas semestertillägg så ska systemet räkna rätt på bas-lönen.
-4. **ATL-tak per kalenderår** — 200 timmar gäller per kalenderår, inte per anställningsår. Systemet måste hålla löpande räkning.
-5. **Extra övertid/mertid** — kräver särskilda skäl (ATL 8 a §/10 a §), ingen dispens. Då gäller 350 tim/år. Kräver explicit konfiguration.
-6. **Sjukdom under övertidsbetald period** — sjuklön är 80 % av den lön och de anställningsförmåner som arbetstagaren faktiskt gått miste om (SjLL 6 §), vilket kan omfatta övertid som arbetstagaren skulle ha arbetat. Kollektivavtal får bestämma den närmare beräkningen (SjLL 2 § andra stycket).
-7. **Övertid efter semester eller frånvaro** — vissa CBA kräver att den anställde fullgjort full arbetsvecka innan övertidstillägg kan utgå.
-
-## Cross-references
-
-- Semesterlöneskuld på övertid → `vacation-pay.md`
-- Sjuklöneberäkning interagerar med övertidshistorik → `sick-pay.md`
-- AGI-rapportering av OB/övertid → `agi-filing.md`
-- BAS-konton 7xxx → `bas-7xxx.md`
-- Skatteavdrag → `tax-tables.md`
+| 7010 | Löner kollektivanställda (incl. OB and overtime premiums) |
+| 7210 | Löner tjänstemän (incl. OB and overtime premiums, engine default) |
+| 2710 | Personalskatt (withholding on the full gross incl. premiums) |
+| 2730 | Lagstadgade sociala avgifter (on the full gross incl. premiums) |
