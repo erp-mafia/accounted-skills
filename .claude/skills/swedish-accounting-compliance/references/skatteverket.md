@@ -1,8 +1,7 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Skatteverket Reference
 
 Tax compliance rules, reporting requirements, and API integration details relevant for Swedish accounting software.
-
-
 
 ## Table of Contents
 1. Moms (mervärdesskatt) - rules and rates
@@ -41,7 +40,7 @@ The period is keyed on beskattningsunderlaget (sales excl. moms) for the beskatt
 | Beskattningsunderlag | Period | Deadline |
 |---|---|---|
 | > 40 MSEK (excl. EU-förvärv and import) | Monthly (no alternative) | 26th of the following month (27th in December) |
-| ≤ 40 MSEK | Quarterly by default; monthly on request | Quarterly: 12th of the second month after the quarter (17 August for Apr–Jun). Monthly: 12th of the second month after the period (17th in January and August) |
+| ≤ 40 MSEK | Quarterly by default; monthly on request | Quarterly: 12th of the second month after the quarter (17 August for Apr-Jun). Monthly: 12th of the second month after the period (17th in January and August) |
 | ≤ 1 MSEK | Annual (beskattningsår) by default; monthly or quarterly on request | Enskild näringsidkare without EU trade: 12 May the year after (26 June with byråanstånd). Enskild näringsidkare with EU trade: 26 February. AB/ekonomisk förening without EU trade: tied to the inkomstdeklaration date; with EU trade: 26th of the second month after year-end (27th in December) |
 
 ### Omvänd skattskyldighet (reverse charge)
@@ -123,9 +122,9 @@ Breakdown:
 - Efterlevandepensionsavgift: 0.30% (0.60% until 2025)
 
 **Age-based reductions (2026):**
-- Born 1938–1958 (67+ at year start): only ålderspensionsavgift = 10.21%
+- Born 1938-1958 (67+ at year start): only ålderspensionsavgift = 10.21%
 - Born 1937 or earlier: no arbetsgivaravgifter (0%)
-- Born 2003–2007 (turned 18 but not 23 at year start): 20.81% (ålderspensionsavgift plus half of the other avgifter) on ersättning up to 25 000 kr per calendar month, full 31.42% on the excess. Applies to ersättning paid 1 Apr 2026 – 30 Sep 2027 (Lag 2026:100)
+- Born 2003-2007 (turned 18 but not 23 at year start): 20.81% (ålderspensionsavgift plus half of the other avgifter) on ersättning up to 25 000 kr per calendar month, full 31.42% on the excess. Applies to ersättning paid 1 Apr 2026-30 Sep 2027 (Lag 2026:100)
 
 ### Filing
 - Monthly, together with skattedeklaration
@@ -213,7 +212,7 @@ Always check Skatteverket's current technical documentation. Their APIs change. 
 - Only for privatpersoner who own the bostad
 - Applies to: reparation, underhåll, om- och tillbyggnad
 - Filing: via Skatteverket's system, contractor submits begäran
-- Temporary 50% rate applied **12 May – 31 December 2025** (prop. 2024/25:156); reverted to 30% at 2026-01-01. The takbelopp stayed at 50 000 kr throughout — only the subsidy rate changed.
+- Temporary 50% rate applied **12 May: 31 December 2025** (prop. 2024/25:156); reverted to 30% at 2026-01-01. The takbelopp stayed at 50 000 kr throughout, only the subsidy rate changed.
 
 ### RUT-avdrag (2026)
 - 50% of arbetskostnad
@@ -255,8 +254,8 @@ Law allowing Skatteverket to access digital bokföring directly via internet dur
 - Riksdag decision: 25 March 2026
 - In force: 1 July 2026
 
-### Implications for cloud bookkeeping systems
-Where bokföring is stored in the cloud, Skatteverket can under the new rules request access to a customer's data directly in the system. Such a system should:
+### Implications for Accounted
+Your system stores bokföring in the cloud. Under the new rules, Skatteverket could request access to a customer's data directly in your system. You should:
 1. Have granular access controls (per-company read access)
 2. Maintain complete audit trails
 3. Ensure data immutability (event-sourced architecture helps here)

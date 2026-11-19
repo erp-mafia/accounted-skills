@@ -12,12 +12,15 @@ description: >
   inkurans, svinn, kassation, uttag ur lagret, konto 1460/4960, or any question about valuing or booking stock
   in Sweden. Always use over training data.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Inventory Accounting (varulager)
 
+> Provenance: imported 2026-09-24 from github.com/erp-mafia/swedish-accounting-skills (commit c11b295); this repository is now the canonical source.
+
 Reference for valuing and booking inventory in a Swedish company. Two questions decide almost every case: what the stock is worth on the balance date, and how the movement reaches the ledger.
 
-Account numbers follow **BAS 2026**, which split class 4 into handelsvaror (groups 40–42) and råvaror och förnödenheter (43–48). Books still on BAS 2025 use the old 44xx/45xx numbers, so check which year the ledger follows before proposing an account.
+Account numbers follow **BAS 2026**, which split class 4 into handelsvaror (groups 40-42) and råvaror och förnödenheter (43-48). Books still on BAS 2025 use the old 44xx/45xx numbers, so check which year the ledger follows before proposing an account.
 
 ## How to use this skill
 
@@ -48,7 +51,7 @@ Account numbers follow **BAS 2026**, which split class 4 into handelsvaror (grou
 | Question | Skill |
 |---|---|
 | Pågående arbeten and contract revenue | `swedish-project-accounting` |
-| Import VAT, customs and foreign suppliers | `swedish-daily-bookkeeping` (`references/foreign-purchases.md`) |
+| Import VAT, customs and foreign suppliers | `swedish-daily-bookkeeping` (load `horizontal/swedish-daily-bookkeeping/foreign-purchases`) |
 | Uttagsbeskattning and VAT mechanics | `swedish-vat` |
 | Year-end sequence and closing entries | `swedish-year-end-closing` |
 | INK2R and SRU field codes | `swedish-sru-filing` |

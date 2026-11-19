@@ -1,21 +1,22 @@
-# EF vs AB — Skattemässig Jämförelse och Brytpunkter
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# EF vs AB: Skattemässig Jämförelse och Brytpunkter
 
 <!-- toc -->
 **Contents**
 
 - [Purpose](#purpose)
 - [Den fundamentala olikheten](#den-fundamentala-olikheten)
-- [Marginalskatt + total skatt — kvalitativ struktur](#marginalskatt--total-skatt--kvalitativ-struktur)
-- ["Kvar efter skatt på 100 kr" — kvalitativ jämförelse EF vs AB](#kvar-efter-skatt-på-100-kr--kvalitativ-jämförelse-ef-vs-ab)
+- [Marginalskatt + total skatt: kvalitativ struktur](#marginalskatt--total-skatt-kvalitativ-struktur)
+- ["Kvar efter skatt på 100 kr": kvalitativ jämförelse EF vs AB](#kvar-efter-skatt-på-100-kr-kvalitativ-jämförelse-ef-vs-ab)
 - [När EF generellt är förmånligare än AB](#när-ef-generellt-är-förmånligare-än-ab)
 - [När AB generellt är förmånligare](#när-ab-generellt-är-förmånligare)
 - ["Både och"-strategy (parallell EF + AB)](#både-och-strategy-parallell-ef--ab)
 - [Skiljd hantering vid sjukpenning](#skiljd-hantering-vid-sjukpenning)
-- [Inlåning till AB — and parallel concept i EF](#inlåning-till-ab--and-parallel-concept-i-ef)
+- [Inlåning till AB: and parallel concept i EF](#inlåning-till-ab-and-parallel-concept-i-ef)
 - [Uthyrning till AB](#uthyrning-till-ab)
-- [Tantieme — inte tillgängligt i EF](#tantieme--inte-tillgängligt-i-ef)
+- [Tantieme: inte tillgängligt i EF](#tantieme-inte-tillgängligt-i-ef)
 - [Föräldraledighet och föräldrapenninggrundande inkomst](#föräldraledighet-och-föräldrapenninggrundande-inkomst)
-- [Ombildning EF → AB — when to switch](#ombildning-ef--ab--when-to-switch)
+- [Ombildning EF → AB: when to switch](#ombildning-ef--ab-when-to-switch)
 - [Tabell: snabbjämförelse vid olika vinstnivåer](#tabell-snabbjämförelse-vid-olika-vinstnivåer)
 - [Anställning vs EF + bisyssla](#anställning-vs-ef--bisyssla)
 - [Pitfalls](#pitfalls)
@@ -42,40 +43,40 @@ For AB-specific skatteplanering (3:12-regler, periodiseringsfond AB, koncernbidr
 | Skattesubjekt | Nej (personlig deklaration) | Ja (egen INK2) |
 | Ansvar för skulder | Obegränsat personligt | Begränsat till aktiekapital (25k min) |
 | Föreningssamhetsstruktur | En person (eller makar gemensamt) | 1+ ägare med skilda andelar |
-| Inkomstskatt | Personlig progressiv (29 – 65% inkl egenavgifter) | Bolagsskatt 20,6% + ägarbeskattning |
+| Inkomstskatt | Personlig progressiv (29-65% inkl egenavgifter) | Bolagsskatt 20,6% + ägarbeskattning |
 | Socialavgift | Egenavgifter 28,97% (aktiv) / SLP 24,26% (passiv) | Arbetsgivaravgifter 31,42% på lön |
 | Periodiseringsfond | 30%, ingen schablonintäkt, ej bokförd | 25%, schablonintäkt, ska bokföras |
-| Expansionsfond | 20,6%, ger lågbeskattad retention | (Inte tillämpligt — använd retention) |
+| Expansionsfond | 20,6%, ger lågbeskattad retention | (Inte tillämpligt: använd retention) |
 | Räntefördelning | Tillämpligt (IL 33 kap) | Inte tillämpligt |
 | Inlåning till AB | (Ej tillämpligt) | Tillåtet, ränta 30% kapital |
 | 3:12-regler | (Ej tillämpligt) | Tillämpligt vid kvalificerade andelar |
 | Personligt ansvar | Du själv är firman | Knivskarp skiljelinje |
-| Förbudet mot lån från företaget | Ej tillämpligt — du och firman är samma juridiska person, alla uttag är dina egna pengar | **Förbjudna lån** till aktieägare/närstående enligt ABL 21 kap (smitta hela bolaget, brott mot låneförbudet) |
+| Förbudet mot lån från företaget | Ej tillämpligt: du och firman är samma juridiska person, alla uttag är dina egna pengar | **Förbjudna lån** till aktieägare/närstående enligt ABL 21 kap (smitta hela bolaget, brott mot låneförbudet) |
 | Revisor | Aldrig krav | Krav om 2 av: omsättning > 3 MSEK, 3 anställda, balansomslutning > 1,5 MSEK |
 | Bokslut form | Förenklat årsbokslut (K1) om < 3 MSEK | Årsredovisning (K2/K3) alltid |
 | Bolagsstämma | Inte tillämpligt | Krav även för enmans-AB |
 | Sjukpenning | Direkt från Försäkringskassan dag 15+ | Bolaget måste betala sjuklön dag 1-14 |
-| Tantieme | Inte möjligt | Möjligt — flyttar resultat mellan år |
+| Tantieme | Inte möjligt | Möjligt: flyttar resultat mellan år |
 
-## Marginalskatt + total skatt — kvalitativ struktur
+## Marginalskatt + total skatt: kvalitativ struktur
 
-Konkreta procentsatser per inkomstnivå varierar mellan inkomstår (JSA-förstärkningar, ändrade brytpunkter, kommunalskattevariationer). Bygg implementationen mot **Skatteverkets aktuella tabeller** + jobbskatteavdragsräknare för exakta värden — det följande är en kvalitativ guide.
+Konkreta procentsatser per inkomstnivå varierar mellan inkomstår (JSA-förstärkningar, ändrade brytpunkter, kommunalskattevariationer). Bygg implementationen mot **Skatteverkets aktuella tabeller** + jobbskatteavdragsräknare för exakta värden: det följande är en kvalitativ guide.
 
 ### Icke-pensionärer (aktiv EF, 7 karensdagar, 28,97 % egenavgifter, kommun ~32 %)
 
 ```
 total_skatt_andel(vinst) växer gradvis från ~24 % vid 100 000 kr → ~45 % vid 1 000 000 kr
 marginalskatt(vinst):
-  under skiktgränsen:                 ~32–46 % (lägst vid lägsta inkomster pga JSA)
-  precis över skiktgränsen:           ~46 % + 20 % statlig = ~58–63 %
-  i JSA-utfasningsintervallet (>13,54 PBB):  ~62–65 %  ← marginalskatten "hoppar"
+  under skiktgränsen:                 ~32-46 % (lägst vid lägsta inkomster pga JSA)
+  precis över skiktgränsen:           ~46 % + 20 % statlig = ~58-63 %
+  i JSA-utfasningsintervallet (>13,54 PBB):  ~62-65 %  ← marginalskatten "hoppar"
 ```
 
-**Praktisk tröskel**: marginalskatten gör ett tydligt hopp uppåt nära 800 000 kr (kombinerad effekt av statlig skattegräns + JSA-utfasning). Över ca 800 000 kr platsar marginalen ~62–65 %.
+**Praktisk tröskel**: marginalskatten gör ett tydligt hopp uppåt nära 800 000 kr (kombinerad effekt av statlig skattegräns + JSA-utfasning). Över ca 800 000 kr platsar marginalen ~62-65 %.
 
 ### Pensionärer (samma EF, men 10,21 % ålderspensionsavgift)
 
-Markant lägre total skatt på samma vinstnivå — typiskt **8–12 procentenheter lägre total skatt** än icke-pensionärer i samma inkomstskikt. Detta är ett av de starkaste skälen att hålla EF i drift även efter pensionsåldersgränsen.
+Markant lägre total skatt på samma vinstnivå: typiskt **8-12 procentenheter lägre total skatt** än icke-pensionärer i samma inkomstskikt. Detta är ett av de starkaste skälen att hålla EF i drift även efter pensionsåldersgränsen.
 
 ### Brytpunkter och skiktgräns (aktuella)
 
@@ -84,22 +85,22 @@ Se tabellen i [[egenavgifter-sgi-pgi-jsa]] för 2025/2026-värden:
 - Brytpunkt 2025: ~643 100 kr / 2026: ~660 400 kr (gross-inkomst före grundavdrag)
 - Pensionärer: högre effektiv skiktgräns p.g.a. förhöjt grundavdrag
 
-## "Kvar efter skatt på 100 kr" — kvalitativ jämförelse EF vs AB
+## "Kvar efter skatt på 100 kr": kvalitativ jämförelse EF vs AB
 
 Alla värden ungefärliga, för icke-pensionär under brytpunkten:
 
 | Inkomstmetod | Kvar efter skatt per 100 kr | Notering |
 |---|---|---|
-| EF-vinst under brytpunkten | **60–68 kr** | egenavgifter + kommunal, jobbskatteavdrag |
+| EF-vinst under brytpunkten | **60-68 kr** | egenavgifter + kommunal, jobbskatteavdrag |
 | EF + positiv räntefördelning (när tillämpligt) | ~70 kr | flyttar del till kapital (30 %) |
-| AB-lön under brytpunkten | **53–58 kr** | arbetsgivaravgifter 31,42 % + kommunal + jobbskatteavdrag |
+| AB-lön under brytpunkten | **53-58 kr** | arbetsgivaravgifter 31,42 % + kommunal + jobbskatteavdrag |
 | AB-utdelning inom K10 gränsbelopp | ~62 kr | 20,6 % bolagsskatt + 20 % kapital |
 | AB-utdelning över gränsbelopp (tjänstebeskattad) | ~50 kr | 20,6 % bolagsskatt + marginal-tjänst |
 
-Pensionärer (10,21 % egenavgift): upp till ~75 kr kvar per 100 kr på låga–medel-inkomster, oavsett EF eller AB-lön. Födda 1937 eller tidigare (0 % avgift): närmare 80 kr kvar.
+Pensionärer (10,21 % egenavgift): upp till ~75 kr kvar per 100 kr på låga-medel-inkomster, oavsett EF eller AB-lön. Födda 1937 eller tidigare (0 % avgift): närmare 80 kr kvar.
 
 **Tolkning**:
-- Under brytpunkten: EF vinner över AB-lön med ~7–10 kr per 100 kr (~10 % bättre netto)
+- Under brytpunkten: EF vinner över AB-lön med ~7-10 kr per 100 kr (~10 % bättre netto)
 - EF med utnyttjad positiv RF: jämförbart med AB:s K10-utdelning
 - Över brytpunkten: AB med K10-utdelning vinner, eftersom statlig skatt 20 % slår igenom på EF-vinst men inte på kapitalbeskattad utdelning
 
@@ -107,24 +108,24 @@ Pensionärer (10,21 % egenavgift): upp till ~75 kr kvar per 100 kr på låga–m
 
 1. **Vinst under brytpunkten** (icke-pensionär)
 2. **Pensionär** med aktiv NV (mycket lägre egenavgifter än AB:s arbetsgivaravgifter)
-3. **Kombinerad förlustverksamhet och vinstverksamhet** — automatisk kvittning inom EF (se [[kvittning-underskott]] för räkneexempel)
-4. **Kulturarbetarverksamhet** — fri kvittning av underskott mot tjänst, ingen 5-årsgräns
-5. **Ny start** — kvittning mot tjänst första 5 åren (100k/år)
-6. **62–64-åringar** — har specialgyl: hel allmän pension under hela året → lägre 10,21% egenavgifter även före 65
+3. **Kombinerad förlustverksamhet och vinstverksamhet**: automatisk kvittning inom EF (se [[kvittning-underskott]] för räkneexempel)
+4. **Kulturarbetarverksamhet**: fri kvittning av underskott mot tjänst, ingen 5-årsgräns
+5. **Ny start**: kvittning mot tjänst första 5 åren (100k/år)
+6. **62-64-åringar**: har specialgyl: hel allmän pension under hela året → lägre 10,21% egenavgifter även före 65
 
 ## När AB generellt är förmånligare
 
 1. **Vinst över brytpunkten** (statlig skatt 20% extra slår igenom)
-2. **Behov av att samla på sig sparat utdelningsutrymme (K10)** — för framtida säljbar verksamhet
+2. **Behov av att samla på sig sparat utdelningsutrymme (K10)**: för framtida säljbar verksamhet
 3. **Behov av begränsat personligt ansvar** (kommersiella skäl)
 4. **Flera ägare som inte är makar/sambor** (EF passar bara en person eller makar)
-5. **Behov av extern finansiering** — bank/investerare ser hellre AB
+5. **Behov av extern finansiering**: bank/investerare ser hellre AB
 6. **Behov av att kapitalisera ABFP, försäljning av aktier till externa**
-7. **Inlåning av privata medel till verksamheten** — ABs kan göra inlåning, ge sig själv marknadsmässig ränta (~SLR+1) som beskattas i kapital (30%); EF har bara räntefördelning, vilket är mindre flexibelt
+7. **Inlåning av privata medel till verksamheten**: ABs kan göra inlåning, ge sig själv marknadsmässig ränta (~SLR+1) som beskattas i kapital (30%); EF har bara räntefördelning, vilket är mindre flexibelt
 
 ## "Både och"-strategy (parallell EF + AB)
 
-I många fall är det bästa alternativet att driva både EF och AB parallellt — kombinationen ger fördelar som ingetdera ensamt erbjuder.
+I många fall är det bästa alternativet att driva både EF och AB parallellt: kombinationen ger fördelar som ingetdera ensamt erbjuder.
 
 ### Use cases
 
@@ -138,7 +139,7 @@ I många fall är det bästa alternativet att driva både EF och AB parallellt �
 
 - AB driver konsultverksamheten (hög inkomst, K10 + lön kombo)
 - EF driver hyresfastighet (passiv → SLP 24,26%, ingen JSA, eller om aktiv-status: full system)
-- Inkomstkvittning mellan AB och EF är dock inte möjligt direkt — men:
+- Inkomstkvittning mellan AB och EF är dock inte möjligt direkt: men:
   - AB:s utgifter och EF:s utgifter är separata; ingen blandning
   - Personlig deklaration kombinerar dock allt → AB-utdelning + EF-vinst slås ihop för progressivskalan
   - **Lägg lågmarginalskatt-aktiviteten i EF**, högmarginalskatt-aktiviteten i AB
@@ -162,9 +163,9 @@ A subtle but real fördel för EF:
 - **AB-ägare**: AB:et måste betala sjuklön första 14 dagarna ur egen ficka. Försäkringskassan tar över dag 15+. Försäkringskassan granskar AB:ens ekonomi för att bedöma rimlig SGI → kan vara restriktiva för hög lön
 - **EF-ägare**: Försäkringskassan betalar sjukpenning direkt från dag 8 (efter karenstid 7 dagar). Aldrig sjuklönsperiod ur EF-ekonomin. SGI baseras på NV-inkomsten over senare år.
 
-För AB-anställda baseras sjukpenningen normalt direkt på månadslönen, men Försäkringskassan kan granska bolagets ekonomi för att bedöma om ett ovanligt högt löneuttag är uthålligt — det kan leda till nedjusterad SGI om resultatet inte motsvarar lönenivån.
+För AB-anställda baseras sjukpenningen normalt direkt på månadslönen, men Försäkringskassan kan granska bolagets ekonomi för att bedöma om ett ovanligt högt löneuttag är uthålligt: det kan leda till nedjusterad SGI om resultatet inte motsvarar lönenivån.
 
-## Inlåning till AB — and parallel concept i EF
+## Inlåning till AB: and parallel concept i EF
 
 ### AB
 
@@ -175,7 +176,7 @@ För AB-anställda baseras sjukpenningen normalt direkt på månadslönen, men F
 
 ### EF
 
-- Ingen motsvarighet — det är **du själv** som driver firman; du kan inte låna ut till dig själv
+- Ingen motsvarighet: det är **du själv** som driver firman; du kan inte låna ut till dig själv
 - Närmast: räntefördelning (kapitalbeskattning 30% av schablonräntan på kapitalunderlaget)
 - Räntefördelning är dock obligatorisk (alltid beräknas), och kommer med vissa begränsningar (kapitalunderlag-tröskel, etc)
 
@@ -187,7 +188,7 @@ EF har en **specifik nackdel** vs AB här:
 - Som EF-ägare får du INTE hyra ut lokal i din bostad till din EF
 - Istället: schablonavdrag (2 000 / 4 000 kr per år beroende på upplåtelseform) eller faktiska merkostnader
 
-## Tantieme — inte tillgängligt i EF
+## Tantieme: inte tillgängligt i EF
 
 I AB kan ägaren styra resultatet genom **tantiemavsättning** (vinstrelaterad löneökning, beskattas hos ägaren året efter bolagsstämman):
 - Reducerar AB:ens beskattningsbara resultat aktuella året
@@ -201,16 +202,16 @@ I EF: ingen motsvarighet. Resultatet beskattas alltid hos näringsidkaren person
 - AB: lön + förmåner → föräldrapenninggrundande
 - Hybridfördel: AB-ägare kan dra upp sin lön innan föräldraledighet för att maxa föräldrapenningen (FK kan dock granska)
 
-## Ombildning EF → AB — when to switch
+## Ombildning EF → AB: when to switch
 
 Triggers för att ombilda till AB:
-- **Vinst regelbundet över 800 000 kr** — marginalskatten i EF når 61–63% medan AB-bolagsskatt + K10-utdelning ger 36–40% effektiv
-- **Verksamhet ska säljas i framtid** — AB-aktier kan säljas; EF kan inte
+- **Vinst regelbundet över 800 000 kr**: marginalskatten i EF når 61-63% medan AB-bolagsskatt + K10-utdelning ger 36-40% effektiv
+- **Verksamhet ska säljas i framtid**: AB-aktier kan säljas; EF kan inte
 - **Externa investerare** behöver
-- **Personligt ansvar oacceptabelt** — t.ex. byggverksamhet med stora kontrakt
-- **Flera ägare som inte är makar** — EF passar bara en person + makar; HB möjligt men ofta inte attraktivt
-- **Anställning skapas** — formellt anställningsförhållande lättare i AB
-- **Skenmänsklig profilering** — AB ofta uppfattas som mer seriös av kunder
+- **Personligt ansvar oacceptabelt**: t.ex. byggverksamhet med stora kontrakt
+- **Flera ägare som inte är makar**: EF passar bara en person + makar; HB möjligt men ofta inte attraktivt
+- **Anställning skapas**: formellt anställningsförhållande lättare i AB
+- **Skenmänsklig profilering**: AB ofta uppfattas som mer seriös av kunder
 
 ### Praktisk ombildning
 
@@ -232,7 +233,7 @@ Per intjänad krona, ungefär (under 65, aktiv, kommunalskatt 32%):
 | 700 000 | 54 kr/100 | 48 kr/100 | 62 kr/100 |
 | 900 000 | 37 kr/100 | 42 kr/100 | 62 kr/100 |
 
-(Approximate — actual depends on specific deduction utilizations.)
+(Approximate: actual depends on specific deduction utilizations.)
 
 Crossover for EF advantage: roughly **at brytpunkten** (~640 000 kr 2025). Below it, EF wins. Above it, AB with K10 wins.
 
@@ -255,20 +256,20 @@ besparing ≈ 54 000 kr/år genom intern kvittning mellan delverksamheter i EF
 
 ## Pitfalls
 
-1. **Förutsätta att AB alltid är bättre vid hög vinst** — under brytpunkten EF är ALMOST ALWAYS bättre
-2. **Glömma "både och" möjligheten** — ofta bästa lösningen
-3. **Konvertering till AB innan brytpunkten passerats** — för tidig konvertering kostar K10-uppbyggnad och frivillig administration
-4. **Inte överväga 62-årsgyl** — pensionärer (även 62-åringar med hel pension) har drastiskt lägre egenavgifter i EF
-5. **Stoppa allt arbete vid 65** — fortsätt aktiv NV → utökat JSA, fortsatt pensionsintjäning
-6. **Glömma att EF-underskott från olika delverksamheter automatiskt kvittas** — ofta inte rimligt att sätta upp separata AB
-7. **Aktiekapital 25 000 kr som "lätt"** — i praktiken blir AB-ägare ofta personligt ansvariga via borgensavtal → personligt ansvar finns redan
-8. **Ansvarsgenombrott** — staten kan kräva betalning från AB-ägare för obetalda skatter/avgifter; ej helt riskfritt
+1. **Förutsätta att AB alltid är bättre vid hög vinst**: under brytpunkten EF är ALMOST ALWAYS bättre
+2. **Glömma "både och" möjligheten**: ofta bästa lösningen
+3. **Konvertering till AB innan brytpunkten passerats**: för tidig konvertering kostar K10-uppbyggnad och frivillig administration
+4. **Inte överväga 62-årsgyl**: pensionärer (även 62-åringar med hel pension) har drastiskt lägre egenavgifter i EF
+5. **Stoppa allt arbete vid 65**: fortsätt aktiv NV → utökat JSA, fortsatt pensionsintjäning
+6. **Glömma att EF-underskott från olika delverksamheter automatiskt kvittas**: ofta inte rimligt att sätta upp separata AB
+7. **Aktiekapital 25 000 kr som "lätt"**: i praktiken blir AB-ägare ofta personligt ansvariga via borgensavtal → personligt ansvar finns redan
+8. **Ansvarsgenombrott**: staten kan kräva betalning från AB-ägare för obetalda skatter/avgifter; ej helt riskfritt
 
 ## Implementation checklist for software
 
 If you build software that helps users choose between EF and AB:
 
-- [ ] Ask: vinst-prognos per år nästa 3–5 år
+- [ ] Ask: vinst-prognos per år nästa 3-5 år
 - [ ] Ask: ålder, pension-status
 - [ ] Ask: behöver begränsa personligt ansvar?
 - [ ] Ask: flera ägare? Make/sambo?

@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Traktamente and Utlägg
 
 ## Domestic traktamente
@@ -7,7 +8,7 @@ Tax-free domestic traktamente requires a tjänsteresa with overnight stay, desti
 | Period | Hel dag | Halv dag | Nattraktamente |
 |---|---|---|---|
 | 2023 | 260 SEK | 130 SEK | 130 SEK |
-| 2024–2025 | 290 SEK | 145 SEK | 145 SEK |
+| 2024-2025 | 290 SEK | 145 SEK | 145 SEK |
 | 2026 | 300 SEK | 150 SEK | 150 SEK |
 
 ### Day type rules

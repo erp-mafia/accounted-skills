@@ -1,8 +1,11 @@
+---
+audience: developer
+---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+
 # SIE4 File Format Reference
 
 SIE (Standard Import Export) is the Swedish standard for exchanging accounting data between systems. SIE4 is the current version used in practice.
-
-
 
 ## Table of Contents
 1. SIE versions overview

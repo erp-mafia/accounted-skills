@@ -3,6 +3,7 @@ name: swedish-vat
 description: >
   Swedish VAT (moms) compliance reference. Covers momsredovisning periods/deadlines, EU VAT (omvänd skattskyldighet, reverse charge, tjänstehandel, varuhandel, trepartshandel, OSS), import/export moms, representation moms (300 SEK cap), mixed verksamhet (proportionell avdragsrätt, HFD 2023 ref. 45), jämkning of input VAT on capital goods, frivillig skattskyldighet for uthyrning, momsdeklaration Ruta 05-62 to BAS 26xx mapping, complete BAS 26xx series, error patterns, penalties, and law references (ML 2023:200, SFL, EU VAT Directive). Trigger on ANY Swedish moms/VAT question, momsdeklaration, EU trade VAT, reverse charge, representation, blandad verksamhet, jämkning, BAS 2610-2670, rutor 05-62, "vilken momskod", "hur bokför jag moms", "omvänd moms", "EU-moms", "importmoms". Highest-error-rate area in Swedish bookkeeping; always use this skill over training data.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish VAT (Moms) Compliance Skill
 
@@ -36,7 +37,7 @@ Always read the full reference before answering ANY question about:
 |------|-----------|
 | 25% | Default rate, most goods and services |
 | 12% | Hotel, restaurant and catering, camping, repairs (bicycles/shoes/leather goods/clothing/household linen, ML 9:7); food before 2026-04-01 and again from 2028-01-01 (SFS 2026:119) |
-| 6% | Books, newspapers, transport, cultural events, sports; food (livsmedel, incl. takeaway) 2026-04-01 to 2027-12-31 (SFS 2026:118); entry to dance events from 2026-07-01 (SFS 2026:841) |
+| 6% | Books, newspapers, transport, cultural events, sports; food (livsmedel, incl. takeaway) 2026-04-01 to 2027-12-31 (SFS 2026:118); entry to dance events (tillträde till danstillställningar) from 2026-07-01 (SFS 2026:841; 25% through 30 June 2026) |
 | 0% | Exports outside EU, intra-EU supplies (with conditions) |
 
 ## Quick reference: Key BAS accounts

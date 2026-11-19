@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Inkomstuppdelning i Familjen
 
 <!-- toc -->
@@ -19,9 +20,9 @@
 
 ## Legal basis
 
-- IL 60 kap (Inkomstuppdelning mellan makar och barn) — full chapter
-- IL 60 kap 2 § — lön till barn
-- IL 60 kap 6 § — F-skattegodkännande för medhjälpande make
+- IL 60 kap (Inkomstuppdelning mellan makar och barn): full chapter
+- IL 60 kap 2 §: lön till barn
+- IL 60 kap 6 §: F-skattegodkännande för medhjälpande make
 
 ## Purpose
 
@@ -54,7 +55,7 @@ The medhjälpande make may declare an inkomst from the verksamheten, **maximerat
 - Higher belopp kan motiveras med branscherfarenhet, utbildning eller kollektivavtal
 - Förmåner som den medhjälpande maken har får rymmas inom marknadsmässig ersättning
 
-Plus: medhjälpande maken may declare an **inkomst motsvarande rimlig ersättning på den kapitalinsats** som maken har gjort. Den rimliga ersättningen utgår från räntefördelningens kapitalunderlag — fr.o.m. inkomstår 2025 (prop. 2024/25:1) krävs inte längre att kapitalunderlaget överstiger 50 000 kr för att räntefördela. Räntefördelning får göras så snart kapitalunderlaget är positivt (≥ 0 kr).
+Plus: medhjälpande maken may declare an **inkomst motsvarande rimlig ersättning på den kapitalinsats** som maken har gjort. Den rimliga ersättningen utgår från räntefördelningens kapitalunderlag: fr.o.m. inkomstår 2025 (prop. 2024/25:1) krävs inte längre att kapitalunderlaget överstiger 50 000 kr för att räntefördela. Räntefördelning får göras så snart kapitalunderlaget är positivt (≥ 0 kr).
 
 **INTE allowed**: fördelning av underskott till medhjälpande maken. Medhjälpande maken kan endast få ersättning om verksamheten gått med överskott.
 
@@ -62,9 +63,9 @@ Plus: medhjälpande maken may declare an **inkomst motsvarande rimlig ersättnin
 
 #### Aktiv/passiv classification i medhjälparfallet
 
-- Minst 500–600 arbetstimmar/år → medhjälpande maken's inkomst räknas som **aktiv** (gäller hela inkomsten, inkl räntan på kapital)
-- Under 500–600 timmar UTAN ägande: man tittar på om inkomsten är marknadsmässig ersättning för arbetsinsatsen → om så, aktiv
-- Under 500–600 timmar MED ägande: bedöms andelen av medhjälpande makens inkomst som hör till avkastning på kapital vs faktisk arbetsinsats
+- Minst 500-600 arbetstimmar/år → medhjälpande maken's inkomst räknas som **aktiv** (gäller hela inkomsten, inkl räntan på kapital)
+- Under 500-600 timmar UTAN ägande: man tittar på om inkomsten är marknadsmässig ersättning för arbetsinsatsen → om så, aktiv
+- Under 500-600 timmar MED ägande: bedöms andelen av medhjälpande makens inkomst som hör till avkastning på kapital vs faktisk arbetsinsats
 - Om medhjälpande makens inkomst består **uteslutande av kapitalavkastning** → passiv för hela inkomsten
 
 ### Gemensam verksamhet (equal roles)
@@ -77,7 +78,7 @@ If båda makarna kan anses ha **samma ställning** i verksamheten, det är gemen
 
 #### Rules for gemensam verksamhet
 
-- Resultatet fördelas **efter arbetsinsatsen** (kan dras före schablonavdrag för egenavgifter, räntefördelning, periodiseringsfond, expansionsfond, JSA — eftersom dessa är personliga poster)
+- Resultatet fördelas **efter arbetsinsatsen** (kan dras före schablonavdrag för egenavgifter, räntefördelning, periodiseringsfond, expansionsfond, JSA: eftersom dessa är personliga poster)
 - **Även underskott** får fördelas (i motsats till medhjälparfallet)
 - F-skattegodkännande: **båda** makarna kan få detta i gemensam verksamhet
 - Deklarationen: bara en av makarna behöver fylla i komplett NE-bilaga med alla siffror; andra maken fyller i grunduppgifter på NE + sista delen av NE-bilagan för sin andel
@@ -90,22 +91,22 @@ If båda makarna kan anses ha **samma ställning** i verksamheten, det är gemen
 | Båda makar aktivt arbetande (gemensam verksamhet) | Båda aktiva |
 | Båda makar mest medhjälpande/passiva | Båda passiva |
 | Företagsledande make aktiv, medhjälpande inte | Företagsledande maken aktiv; medhjälpande bedöms separat |
-| Medhjälpande maken jobbar ≥ 1/3 av heltid (500–600h) | Aktiv (smittar genom huvudsaklighetsregeln) |
+| Medhjälpande maken jobbar ≥ 1/3 av heltid (500-600h) | Aktiv (smittar genom huvudsaklighetsregeln) |
 
-Smittoeffekt: medhjälpande maken bedöms i regel på samma sätt som den företagsledande — om företagsledaren är aktiv blir medhjälparen i normalfallet också aktiv (och tvärtom).
+Smittoeffekt: medhjälpande maken bedöms i regel på samma sätt som den företagsledande: om företagsledaren är aktiv blir medhjälparen i normalfallet också aktiv (och tvärtom).
 
 ## Lön till barn
 
 ### Barn under 16 år
 - Ersättningar och förmåner till **egna barn under 16 år** beskattas helt och hållet hos den make som deklarerar den **högsta inkomsten** från NV
-- Detta är en spärrregel — föräldrarna kan inte få en avdragsgill kostnad genom att betala barnet
+- Detta är en spärrregel: föräldrarna kan inte få en avdragsgill kostnad genom att betala barnet
 - Om makarna har lika stor inkomst, beskattas hos den **äldsta maken**
 
 ### Barn som fyllt 16 år
 - Barn som fyllt 16 år kan **avlönas** och själv beskattas för beloppet
 - Övre gräns för marknadsmässig ersättning: **samma som för medhjälpande make** (90 kr/timme + egenavgifter)
 - Den del som överstiger marknadsmässig lön är *inte avdragsgill* för företaget, och inte heller arbetsgivaravgifter på överskjutande
-- Det finns **ingen övre åldersgräns** — gäller också vuxna barn
+- Det finns **ingen övre åldersgräns**: gäller också vuxna barn
 - Det spelar ingen roll om barnet bor hemma
 - 16-årsdagen: arbetet ska *utföras efter* att barnet fyllt 16 år, men i praktiken utgår man från avlöningstillfället
 
@@ -133,7 +134,7 @@ Krav: barnet ≥ 16 år **vid avlöningstillfället**, faktiskt arbete utfört, 
 
 Planeringstips: höj barnets lön så att den hamnar precis över **deklarationsgränsen 0,423 × PBB** (=24 870 kr 2025 / 25 042 kr 2026) → utlöser pensionsrätt från första kronan. Varje krona över gränsen kostar 7 % allmän pensionsavgift för barnet, men ger flera hundra kronor mer i pension varje år livet ut.
 
-### Tröskeleffekt — skattefri inkomst vs PGI
+### Tröskeleffekt: skattefri inkomst vs PGI
 
 Att hålla barnets lön precis *under* deklarationsgränsen ger skattefri inkomst men **ingen PGI**. Optimalt: precis *över* gränsen → liten direktkostnad mot stor pensionsvinst.
 
@@ -167,21 +168,21 @@ In gemensam EF där makar tillsammans äger tillgångar och har skulder:
 - Each make computes kapitalunderlag på *sin andel* av tillgångar och skulder
 - Genom att fördela ägande av tillgångar och skulder kan storleken av räntefördelningsbeloppet styras
 
-> **Notera (2025-reform):** Äldre källor talar om att nå "+50 001 räntefördelningsgräns" — den gränsen är **slopad fr.o.m. inkomstår 2025**. Numera går det att räntefördela från första positiva kronan, men storleken på kapitalunderlaget bestämmer fördelningsbeloppet (kapitalunderlag × SLR+6%). Större kapitalunderlag = större belopp som flyttas från NV till kapital (30 % skatt).
+> **Notera (2025-reform):** Äldre källor talar om att nå "+50 001 räntefördelningsgräns": den gränsen är **slopad fr.o.m. inkomstår 2025**. Numera går det att räntefördela från första positiva kronan, men storleken på kapitalunderlaget bestämmer fördelningsbeloppet (kapitalunderlag × SLR+6%). Större kapitalunderlag = större belopp som flyttas från NV till kapital (30 % skatt).
 
 Worked example (2025-regler):
 - Maskin för 15 000 kr behöver köpas
 - Default: båda äger 50/50 → kvinnans kapitalunderlag 40 000 + 7 500 = 47 500 kr → räntefördelningsbelopp 2025 = 47 500 × 7,96 % = 3 781 kr
 - Alt: låter kvinnan **köpa hela maskinen**: kvinnans kapitalunderlag 40 000 + 15 000 = 55 000 kr → räntefördelningsbelopp 2025 = 55 000 × 7,96 % = 4 378 kr
-- Skillnaden 597 kr × marginalskatte-besparing ≈ 100–200 kr/år för medel-EF; större värde vid större kapitalunderlag
+- Skillnaden 597 kr × marginalskatte-besparing ≈ 100-200 kr/år för medel-EF; större värde vid större kapitalunderlag
 
-Such omflyttning ska göras civilrättsligt (faktiskt) — det räcker inte med en skriftlig fördelningsfiktion.
+Such omflyttning ska göras civilrättsligt (faktiskt): det räcker inte med en skriftlig fördelningsfiktion.
 
 ## Pension and SGI through inkomstfördelning
 
 Inkomstfördelning between makar påverkar:
-- **Pensionsgrundande inkomst (PGI)**: 7,5 inkomstbasbelopp tak — om en make är över taket lägs överskottet i hennes inkomstslag onödigt; flytta över till den make som är under taket
-- **Sjukpenninggrundande inkomst (SGI)**: **10 prisbasbelopp** tak (höjt från 7,5 PBB 2018; samma tak som föräldrapenning) — same logic
+- **Pensionsgrundande inkomst (PGI)**: 7,5 inkomstbasbelopp tak: om en make är över taket lägs överskottet i hennes inkomstslag onödigt; flytta över till den make som är under taket
+- **Sjukpenninggrundande inkomst (SGI)**: **10 prisbasbelopp** tak (höjt från 7,5 PBB 2018; samma tak som föräldrapenning): same logic
 - **Föräldrapenninggrundande inkomst**: 10 prisbasbelopp tak
 
 Tips:
@@ -190,14 +191,14 @@ Tips:
 
 ## Pitfalls
 
-1. **Felaktig medhjälpar-/gemensam-klassificering** — Skatteverket kan omklassificera vid revision, vilket kan upphäva tidigare fördelningar
-2. **Underskott fördelat i medhjälparfallet** — INTE tillåtet; måste vara gemensam verksamhet
-3. **Lön till barn under 16 år** — INTE avdragsgillt; beskattas hos högsta make
-4. **Glömma marknadsmässig gräns för medhjälpande make / barn 16+** — överskridande ej avdragsgillt
-5. **Sambor utan gemensamma barn** — räknas EJ som makar; andra fördelningsregler (enkelt bolag)
-6. **F-skattegodkännande för medhjälpande make** — INTE tillåtet; bara företagsledare
-7. **Förmånsbeskattning av medhjälpande makens förmåner** — måste rymmas inom marknadsmässig ersättning
-8. **Stoppregel medhjälpande maken passiv när företagsledare aktiv** — ovanligt: brukar leda till samma klassificering. Software borde varna när detta upptäcks.
+1. **Felaktig medhjälpar-/gemensam-klassificering**: Skatteverket kan omklassificera vid revision, vilket kan upphäva tidigare fördelningar
+2. **Underskott fördelat i medhjälparfallet**: INTE tillåtet; måste vara gemensam verksamhet
+3. **Lön till barn under 16 år**: INTE avdragsgillt; beskattas hos högsta make
+4. **Glömma marknadsmässig gräns för medhjälpande make / barn 16+**: överskridande ej avdragsgillt
+5. **Sambor utan gemensamma barn**: räknas EJ som makar; andra fördelningsregler (enkelt bolag)
+6. **F-skattegodkännande för medhjälpande make**: INTE tillåtet; bara företagsledare
+7. **Förmånsbeskattning av medhjälpande makens förmåner**: måste rymmas inom marknadsmässig ersättning
+8. **Stoppregel medhjälpande maken passiv när företagsledare aktiv**: ovanligt: brukar leda till samma klassificering. Software borde varna när detta upptäcks.
 
 ## Implementation checklist for software
 

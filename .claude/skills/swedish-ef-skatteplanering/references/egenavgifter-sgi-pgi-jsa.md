@@ -1,16 +1,17 @@
-# Egenavgifter, SGI, PGI, Jobbskatteavdrag — Interaction Effects
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# Egenavgifter, SGI, PGI, Jobbskatteavdrag: Interaction Effects
 
 <!-- toc -->
 **Contents**
 
 - [Legal basis](#legal-basis)
-- [Egenavgifter — base rates](#egenavgifter--base-rates)
-- [Generell nedsättning av egenavgifter — 7,5 %](#generell-nedsättning-av-egenavgifter--75)
+- [Egenavgifter: base rates](#egenavgifter-base-rates)
+- [Generell nedsättning av egenavgifter: 7,5 %](#generell-nedsättning-av-egenavgifter--75)
 - [Schablonavdrag för egenavgifter på NE-bilaga](#schablonavdrag-för-egenavgifter-på-ne-bilaga)
 - [Underlag för aktivitets-/sjukpenning (SGI)](#underlag-för-aktivitets-sjukpenning-sgi)
 - [Underlag för pensionsgrundande inkomst (PGI)](#underlag-för-pensionsgrundande-inkomst-pgi)
-- [Jobbskatteavdrag (JSA) — skattereduktion för aktiva NV](#jobbskatteavdrag-jsa--skattereduktion-för-aktiva-nv)
-- [Interaktionsmatris — påverkan på underlag](#interaktionsmatris--påverkan-på-underlag)
+- [Jobbskatteavdrag (JSA): skattereduktion för aktiva NV](#jobbskatteavdrag-jsa-skattereduktion-för-aktiva-nv)
+- [Interaktionsmatris: påverkan på underlag](#interaktionsmatris-påverkan-på-underlag)
 - [Egenavgifter-effekt för aktiv vs passiv vs pensionär](#egenavgifter-effekt-för-aktiv-vs-passiv-vs-pensionär)
 - [Underlag för nedre och övre PGI-gräns](#underlag-för-nedre-och-övre-pgi-gräns)
 - [Pitfalls](#pitfalls)
@@ -20,17 +21,17 @@
 
 ## Legal basis
 
-- Socialavgiftslagen (SAL) 2000:980 — egenavgifter
+- Socialavgiftslagen (SAL) 2000:980: egenavgifter
 - Lagen (1990:659) om särskild löneskatt på vissa förvärvsinkomster
-- IL 67 kap 5-9 §§ — jobbskatteavdrag (skattereduktion)
-- SFB (Socialförsäkringsbalken) 2010:110 — SGI, sjukpenning, föräldrapenning
-- IL 59 kap — pensionssparavdrag
+- IL 67 kap 5-9 §§: jobbskatteavdrag (skattereduktion)
+- SFB (Socialförsäkringsbalken) 2010:110: SGI, sjukpenning, föräldrapenning
+- IL 59 kap: pensionssparavdrag
 
 This reference covers the **interaction effects** between social charges, SGI, PGI, JSA and de skatteplanerings-instrument (P-fond, expansionsfond, räntefördelning, avskrivningar) som påverkar dessa underlag.
 
-## Egenavgifter — base rates
+## Egenavgifter: base rates
 
-### Pensionärsåldersgränsen — höjs successivt
+### Pensionärsåldersgränsen: höjs successivt
 
 Pensionärsstatus (10,21 % ålderspensionsavgift istället för full egenavgift) inträder året **efter** ett visst åldersfyllande. Gränsen följer den höjda pensionsåldersreformen:
 
@@ -41,7 +42,7 @@ Pensionärsstatus (10,21 % ålderspensionsavgift istället för full egenavgift)
 | 2025 | **66 år** | 67 år |
 | 2026 | **67 år** (höjning från 1 jan 2026) | 68 år |
 
-Äldre källor anger ofta 65 år som gräns — det är inaktuellt sedan riktåldern höjdes 2023, och vidare 2026. Verifiera mot Skatteverkets Belopp och procent för aktuellt år.
+Äldre källor anger ofta 65 år som gräns: det är inaktuellt sedan riktåldern höjdes 2023, och vidare 2026. Verifiera mot Skatteverkets Belopp och procent för aktuellt år.
 
 ### Standard rates (2025 och 2026, oförändrade procentsatser)
 
@@ -71,7 +72,7 @@ Pensionärsstatus (10,21 % ålderspensionsavgift istället för full egenavgift)
 
 Pensionärer (som redan betalar 10,21%) får **ingen** generell nedsättning. Likewise +62-åringar som tagit ut hel allmän pension hela året.
 
-### Regional nedsättning (stödområde A — Norrlands inland)
+### Regional nedsättning (stödområde A: Norrlands inland)
 
 10% extra nedsättning av avgiftsunderlaget upp till 180 000 kr → max 18 000 kr/year.
 
@@ -81,18 +82,18 @@ Stödområdet = mest Norrlands inland. Lista finns hos Tillväxtverket.
 
 Helt eller delvis under året: bara ålderspensionsavgift (10,21%) på överskott av aktiv NV.
 
-## Generell nedsättning av egenavgifter — 7,5 %
+## Generell nedsättning av egenavgifter: 7,5 %
 
 Skatteverket benämner detta "generell nedsättning":
 
 - **7,5 procentenheter** nedsättning av egenavgifter
 - Cap: max **15 000 kr/år** (= 7,5% av 200 000 kr underlag)
 - Underlag = överskott av **aktiv** NV (efter schablonavdrag för egenavgifter; exklusive sjukpenning)
-- Krav: överskottet **överstiger 40 000 kr** (= ca 50 000–52 000 kr i överskott före schablonavdrag)
-- Beräknas automatiskt av Skatteverket — du ska INTE begära den i deklarationen
-- Bara aktiva näringsidkare — ej för pensionärer (redan 10,21%) eller passiva (SLP utan nedsättning)
+- Krav: överskottet **överstiger 40 000 kr** (= ca 50 000-52 000 kr i överskott före schablonavdrag)
+- Beräknas automatiskt av Skatteverket: du ska INTE begära den i deklarationen
+- Bara aktiva näringsidkare: ej för pensionärer (redan 10,21%) eller passiva (SLP utan nedsättning)
 
-### Nedsättningens beräkning — KORREKT formel (Skatteverket)
+### Nedsättningens beräkning: KORREKT formel (Skatteverket)
 
 Nedsättningen beräknas som **7,5 % av hela avgiftsunderlaget**, dock max 15 000 kr/år. Förutsättning: full egenavgift betalas (28,97 %), aktiv NV och **överskottet överstiger 40 000 kr**.
 
@@ -101,7 +102,7 @@ nedsättning = min(0,075 × underlag, 15 000)   när underlag > 40 000
 nedsättning = 0                                 när underlag ≤ 40 000
 ```
 
-**Inget 40 000-belopp dras av från underlaget** — hela underlaget multipliceras med 7,5 %. Den formulering man ofta ser, `7,5 % × (överskott − 40 000)`, är felaktig — 40 000-gränsen är en *tröskel* för att nedsättningen ska utgå, inte ett avdragsbelopp.
+**Inget 40 000-belopp dras av från underlaget**: hela underlaget multipliceras med 7,5 %. Den formulering man ofta ser, `7,5 % × (överskott − 40 000)`, är felaktig, 40 000-gränsen är en *tröskel* för att nedsättningen ska utgå, inte ett avdragsbelopp.
 
 Exempel:
 - Underlag 100 000 kr → nedsättning = 0,075 × 100 000 = **7 500 kr**
@@ -112,7 +113,7 @@ Exempel:
 
 Regeln ger en **omvänd marginalskatt** vid tröskeln. Underlag på 40 000 kr ger 0 i nedsättning; underlag på 40 001 kr ger nedsättning på hela underlaget (≈ 3 000 kr). En obetydlig höjning utlöser alltså en betydande skattesänkning.
 
-Software bör flagga överskott precis under 40 000 kr — en krona över triggar nedsättningen.
+Software bör flagga överskott precis under 40 000 kr: en krona över triggar nedsättningen.
 
 ### Maxbelopp 200 000 kr (15 000 kr in nedsättning)
 
@@ -140,7 +141,7 @@ Net effect: schablonavdraget är ett genuint avdrag för året, men korrigeras n
 Skäl att höja deklarerad inkomst genom att sänka schablonavdraget:
 - Utnyttja ROT/RUT-avdrag (kräver tillräckligt med skatt att reducera)
 - Höja PGI för pensionsrätt
-- Höja SGI (Försäkringskassan justerar inte bort schablonavdrag — det är inte en disposition)
+- Höja SGI (Försäkringskassan justerar inte bort schablonavdrag: det är inte en disposition)
 
 Skatteverket kan vägra schablonavdragsändringar som verkar bedrägeriska. Om det avsatta beloppet skiljer sig så markant att det kan antas att näringsidkaren försökt uppnå en obehörig förmån, kan avdraget rättas.
 
@@ -156,7 +157,7 @@ SGI is computed by **Försäkringskassan** based on årsinkomst av arbete. För 
 - Bortser också från insättning/uttag på skogskonto, upphovsmannakonto
 - **Räntefördelning räknas** (men positiv minskar SGI eftersom NV-inkomsten minskar)
 - **Avskrivningar räknas** (höjda avskrivningar minskar SGI)
-- **Schablonavdrag för egenavgifter räknas** (men FK justerar — om du minskar schablonavdraget, FK ökar tillbaka motsvarande)
+- **Schablonavdrag för egenavgifter räknas** (men FK justerar: om du minskar schablonavdraget, FK ökar tillbaka motsvarande)
 
 ### Tak och nedre gräns
 
@@ -179,7 +180,7 @@ Sjukpenning = 77,6% (80% × 0,97) av SGI. Föräldrapenning likewise.
 ### "Framåtriktad" SGI bedömning
 
 Försäkringskassan bedömer SGI **framåt** (vad antar de att näringsidkaren kommer tjäna nästa år), inte bakåt. Vid sjukdom:
-- För nystartade EF (inom första 24–36 månaderna, "uppbyggnadsskedet") jämförs med en motsvarande anställd inkomst
+- För nystartade EF (inom första 24-36 månaderna, "uppbyggnadsskedet") jämförs med en motsvarande anställd inkomst
 - För etablerade EF: senaste års redovisade NV-inkomst används som proxy
 
 ### Höjda SGI-strategies (om man har en känd kommande sjukdomsperiod / föräldraledighet)
@@ -223,7 +224,7 @@ Praktisk skillnad: P-fond kan användas för PGI-utjämning (jämna ut PGI över
 - Hela livet räknas → man kan fortfarande bygga pensionspoäng efter pension
 - → starkt argument att fortsätta jobba aktivt efter 65
 
-## Jobbskatteavdrag (JSA) — skattereduktion för aktiva NV
+## Jobbskatteavdrag (JSA): skattereduktion för aktiva NV
 
 ### Det är en skattereduktion, inte ett avdrag
 
@@ -245,33 +246,33 @@ This is one of the largest specific incentives för aktiv-classification:
 | Inkomstskikt (arbetsinkomst) | Underlag (× kommunalskattesats) |
 |---|---|
 | ≤ 0,91 PBB | Arbetsinkomsten minus grundavdrag |
-| 0,91 – 3,24 PBB | 0,91 PBB + 34,05% av arbetsinkomst i detta skikt, minus grundavdrag |
-| 3,24 – 8,08 PBB | 1,703 PBB + 12,8% av arbetsinkomst i detta skikt, minus grundavdrag |
-| 8,08 – 13,54 PBB | 2,323 PBB minus grundavdrag |
+| 0,91-3,24 PBB | 0,91 PBB + 34,05% av arbetsinkomst i detta skikt, minus grundavdrag |
+| 3,24-8,08 PBB | 1,703 PBB + 12,8% av arbetsinkomst i detta skikt, minus grundavdrag |
+| 8,08-13,54 PBB | 2,323 PBB minus grundavdrag |
 | > 13,54 PBB | 2,323 PBB minus grundavdrag, sedan reduceras med 3% av arbetsinkomster över 13,54 PBB |
 
-### 2025/2026 förstärkningar — JSA har höjts varje budget sedan 2022
+### 2025/2026 förstärkningar: JSA har höjts varje budget sedan 2022
 
-Äldre tabeller (≤ 2021) är inaktuella; JSA har förstärkts vid varje budgetproposition 2022–2026.
+Äldre tabeller (≤ 2021) är inaktuella; JSA har förstärkts vid varje budgetproposition 2022-2026.
 
 - **Inkomstår 2025**: max ~47 300 kr/år (≈ 3 941 kr/månad) för personer under pensionsåldersgränsen (66 år 2025).
-- **Inkomstår 2026** (prop. 2025/26:32 "Sänkt skatt på arbetsinkomster, pension och sjuk- och aktivitetsersättning"): max ~52 400 kr/år (≈ 4 366 kr/månad) för låg-/medelinkomsttagare med arbetsinkomst mellan ~191 800 och 478 300 kr/år (3,24–8,08 PBB).
+- **Inkomstår 2026** (prop. 2025/26:32 "Sänkt skatt på arbetsinkomster, pension och sjuk- och aktivitetsersättning"): max ~52 400 kr/år (≈ 4 366 kr/månad) för låg-/medelinkomsttagare med arbetsinkomst mellan ~191 800 och 478 300 kr/år (3,24-8,08 PBB).
 - Marginalskattesänkning för pensionärer höjs också 2026.
 
-Använd alltid Skatteverkets aktuella jobbskatteavdragsräknare i implementationen — beloppen är dynamiska.
+Använd alltid Skatteverkets aktuella jobbskatteavdragsräknare i implementationen: beloppen är dynamiska.
 
 ### Förhöjt JSA för pensionärer (åldersgräns)
 
-Personer som vid beskattningsårets ingång har fyllt **66 år** (gäller 2025 och 2026, IL 67 kap 8 §) får utökat JSA. En höjning av åldersgränsen till 67 år fr.o.m. 2027 är bara föreslagen (promemoria "Höjd åldersgräns och förstärkning av jobbskatteavdraget för seniorer", maj 2026), inte beslutad. Strukturen nedan beskriver kalkylgrunden — exakta belopp justeras varje budget och bör hämtas från Skatteverket vid implementation:
+Personer som vid beskattningsårets ingång har fyllt **66 år** (gäller 2025 och 2026, IL 67 kap 8 §) får utökat JSA. En höjning av åldersgränsen till 67 år fr.o.m. 2027 är bara föreslagen (promemoria "Höjd åldersgräns och förstärkning av jobbskatteavdraget för seniorer", maj 2026), inte beslutad. Strukturen nedan beskriver kalkylgrunden: exakta belopp justeras varje budget och bör hämtas från Skatteverket vid implementation:
 
 - 20 % av arbetsinkomsten upp till 100 000 kr (= max ~20 000 kr extra)
-- 5 % av arbetsinkomster mellan 100 000 – 300 000 kr (= max ~10 000 kr extra)
-- 30 000 kr på arbetsinkomster mellan 300 000 – 600 000 kr (= max ~30 000 kr extra)
+- 5 % av arbetsinkomster mellan 100 000-300 000 kr (= max ~10 000 kr extra)
+- 30 000 kr på arbetsinkomster mellan 300 000-600 000 kr (= max ~30 000 kr extra)
 - 30 000 kr på arbetsinkomster > 600 000 kr, minus 3 % av arbetsinkomster över 600 000 kr
 
 Pensionärer som är aktiva i NV får ett **avsevärt större** JSA än under-pensionsåldersgränsen-personer, but only on aktiv arbetsinkomst (inte pensionen själv). IL 67 kap 8 § ändrades inte för 2026 (senaste lydelse SFS 2024:1131); 2026 års förstärkning gällde JSA enligt 7 § (under 66 år).
 
-### Arbetsinkomster — definition
+### Arbetsinkomster: definition
 
 Arbetsinkomster = anställningsinkomster minskade med kostnader för inkomsterna i tjänst, samt allmänna avdrag (t.ex. pensionssparande), samt inkomst av **aktiv NV**.
 
@@ -280,12 +281,12 @@ Inte räknas: pension, sjukpenning, föräldrapenning (även om dessa baseras p�
 ### Interaktion med allmänt avdrag (kvittning av underskott)
 
 Allmänt avdrag (kvittning av nystartad NV-underskott mot tjänst) **minskar** underlag för JSA. Net effekt:
-- Kvittning sparar marginalskatt + statlig skatt (~32–52%)
+- Kvittning sparar marginalskatt + statlig skatt (~32-52%)
 - Men minskar JSA-reduktion → marginell motverkning
 
-This is why **rullning ofta är bättre än kvittning** — rullning minskar både egenavgifter och inkomstskatt på framtida intäkt, utan att äta JSA.
+This is why **rullning ofta är bättre än kvittning**: rullning minskar både egenavgifter och inkomstskatt på framtida intäkt, utan att äta JSA.
 
-## Interaktionsmatris — påverkan på underlag
+## Interaktionsmatris: påverkan på underlag
 
 Quick reference för software:
 
@@ -314,7 +315,7 @@ Comparing effective social charges:
 | Pensionär, aktiv | 10,21% | 0% | 10% | ~10,21% |
 | Pensionär, passiv | 24,26% | 0% | 20% | ~24,26% |
 
-Insight: A passive näringsidkare and an active näringsidkare may end up at similar effective rates (~24% each) due to nedsättning-effekten. But aktiv har **JSA on top** (~6–10% reduktion of marginalskatt at 200k income) → aktiv vinner generellt med 15–17 000 kr/år.
+Insight: A passive näringsidkare and an active näringsidkare may end up at similar effective rates (~24% each) due to nedsättning-effekten. But aktiv har **JSA on top** (~6-10% reduktion of marginalskatt at 200k income) → aktiv vinner generellt med 15-17 000 kr/år.
 
 ## Underlag för nedre och övre PGI-gräns
 
@@ -333,15 +334,15 @@ Insight: A passive näringsidkare and an active näringsidkare may end up at sim
 
 ## Pitfalls
 
-1. **Pensionärer som räntefördelar** — vanligen sämre netto-utfall. Pensionärsavgift (10,21 %) är redan lägre än räntefördelningens kapitalskatt (30 %), så ompostering till kapital blir oftast en förlust.
-2. **Förvirring av nedsättningar** — generell (7,5%, max 15k) ≠ regional (10%, max 18k) ≠ pensionär-rate (10,21% i stället för 28,97%)
-3. **P-fond för SGI-höjning** — fungerar INTE; Försäkringskassan bortser från P-fond
-4. **P-fond för PGI-höjning vid utbetalningsåret** — DOES work; FK does not adjust for P-fond when computing PGI
-5. **JSA-effekt av allmänt avdrag glömd** — kvittning sparar inkomstskatt men äter JSA → net effekt mindre än förväntat
-6. **Schablonavdrag för pensionärer** — bara 10% (inte 25%)
-7. **Schablonavdrag för SLP/passiv** — 20% (inte 25%)
-8. **Glömma att F-skatten redan inkluderar uppskattad egenavgift** — checkA-konto blir negativt om man **också** drar schablonavdrag mentalt utan att förstå att SKV redan beaktar
-9. **Tröskeleffekten vid 40 000 kr** — vinst 40 001 ger ~3 000 kr lägre skatt än 40 000 → uppmana till small overshoot om planeringsbart
+1. **Pensionärer som räntefördelar**: vanligen sämre netto-utfall. Pensionärsavgift (10,21 %) är redan lägre än räntefördelningens kapitalskatt (30 %), så ompostering till kapital blir oftast en förlust.
+2. **Förvirring av nedsättningar**: generell (7,5%, max 15k) ≠ regional (10%, max 18k) ≠ pensionär-rate (10,21% i stället för 28,97%)
+3. **P-fond för SGI-höjning**: fungerar INTE; Försäkringskassan bortser från P-fond
+4. **P-fond för PGI-höjning vid utbetalningsåret**: DOES work; FK does not adjust for P-fond when computing PGI
+5. **JSA-effekt av allmänt avdrag glömd**: kvittning sparar inkomstskatt men äter JSA → net effekt mindre än förväntat
+6. **Schablonavdrag för pensionärer**: bara 10% (inte 25%)
+7. **Schablonavdrag för SLP/passiv**: 20% (inte 25%)
+8. **Glömma att F-skatten redan inkluderar uppskattad egenavgift**: checkA-konto blir negativt om man **också** drar schablonavdrag mentalt utan att förstå att SKV redan beaktar
+9. **Tröskeleffekten vid 40 000 kr**: vinst 40 001 ger ~3 000 kr lägre skatt än 40 000 → uppmana till small overshoot om planeringsbart
 
 ## Implementation checklist
 

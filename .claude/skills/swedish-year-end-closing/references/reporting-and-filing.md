@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Reporting Obligations, Filing, and SIE4
 
 <!-- toc -->
@@ -60,13 +61,13 @@ All board members + VD (if appointed) must sign. Revisionsberättelse appended i
 Form: blankett 2161, filed as part of Inkomstdeklaration 1.
 
 ### Page 1: Räkenskapsschema
-- R1–R4: Intäkter (momspliktiga, momsfria, egna uttag, övriga)
-- R5–R13: Kostnader (varuinköp, externa kostnader, löner, arbetsgivaravgifter, avskrivningar)
+- R1-R4: Intäkter (momspliktiga, momsfria, egna uttag, övriga)
+- R5-R13: Kostnader (varuinköp, externa kostnader, löner, arbetsgivaravgifter, avskrivningar)
 - R14: Bokfört resultat
-- B1–B22: Condensed balansräkning
+- B1-B22: Condensed balansräkning
 
 ### Page 2: Skattemässiga justeringar
-- R15–R46: räntefördelning, periodiseringsfond, expansionsfond, egenavgifter schablonavdrag
+- R15-R46: räntefördelning, periodiseringsfond, expansionsfond, egenavgifter schablonavdrag
 - NE surplus/deficit flows into INK1 under "Inkomst av näringsverksamhet"
 
 ---
@@ -84,7 +85,7 @@ Exceeding → must have registered revisor, revisionsberättelse becomes part of
 
 ## Filing deadlines
 
-### AB with calendar year (Jan–Dec)
+### AB with calendar year (Jan-Dec)
 
 | Milestone | Deadline | Penalty |
 |-----------|----------|---------|
@@ -106,9 +107,9 @@ For brutet räkenskapsår: same intervals relative to fiscal year-end.
 
 > **Höjt 2025**: tidigare nivåer var 5 000 / 5 000 / 10 000 = 20 000 SEK (privat AB) och tillämpades på räkenskapsår som inleddes före 2025-01-01. För publikt AB är beloppen dubbla: 15 000 / 15 000 / 30 000 = 60 000 SEK.
 
-### Late filing penalties Skatteverket — INK2 (förseningsavgift per SFL 48 kap 6 §)
+### Late filing penalties Skatteverket: INK2 (förseningsavgift per SFL 48 kap 6 §)
 
-Upp till tre förseningsavgifter kan tas ut för samma deklaration. För aktiebolag/ekonomisk förening är varje avgift **6 250 SEK** — den andra och tredje är lika stora som den första (48 kap 6 § SFL), de eskalerar alltså inte:
+Upp till tre förseningsavgifter kan tas ut för samma deklaration. För aktiebolag/ekonomisk förening är varje avgift **6 250 SEK**: den andra och tredje är lika stora som den första (48 kap 6 § SFL), de eskalerar alltså inte:
 
 - Första avgiften: **6 250 SEK**
 - Andra avgiften (om deklarationen inte lämnats inom 3 månader): ytterligare **6 250 SEK** = totalt 12 500 SEK
@@ -157,8 +158,8 @@ SIE (Standard Import Export) is the Swedish open standard. SIE 4 provides full t
 - `#SRU` tag enables automated INK2R/INK2S generation
 
 ### File extensions
-- `.se` — complete export with balances
-- `.si` — transaction-only import
+- `.se`: complete export with balances
+- `.si`: transaction-only import
 
 ### Example SIE4 snippet
 ```

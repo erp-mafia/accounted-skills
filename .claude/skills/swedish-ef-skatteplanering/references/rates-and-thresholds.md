@@ -1,4 +1,5 @@
-# Rates and Thresholds — Enskild Firma
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# Rates and Thresholds: Enskild Firma
 
 <!-- toc -->
 **Contents**
@@ -13,7 +14,7 @@
 
 <!-- /toc -->
 
-Every rate and belopp used by the EF planning instruments, by topic and with the year each figure belongs to. **Verify annually** mot Skatteverkets "Belopp och procent" — percentages and belopp are set per inkomstår.
+Every rate and belopp used by the EF planning instruments, by topic and with the year each figure belongs to. **Verify annually** mot Skatteverkets "Belopp och procent": percentages and belopp are set per inkomstår.
 
 ## Egenavgifter (inkomstår 2025/2026, oförändrade procentsatser)
 
@@ -23,10 +24,10 @@ Every rate and belopp used by the EF planning instruments, by topic and with the
 | Active, 1 karensdag | slightly higher |
 | Active, 90 karensdagar | slightly lower |
 | Passive (SLP) | **24,26 %** |
-| Pensionär (aktiv NV, året efter pensionsåldersgränsen — 66 år 2025, 67 år 2026; passiv NV betalar SLP 24,26 % oavsett ålder) | **10,21 %** |
+| Pensionär (aktiv NV, året efter pensionsåldersgränsen: 66 år 2025, 67 år 2026; passiv NV betalar SLP 24,26 % oavsett ålder) | **10,21 %** |
 | Född 1937 eller tidigare | **0 %** |
 
-**Generell nedsättning** 7,5 % av hela avgiftsunderlaget, max 15 000 kr/år. Förutsättning: aktiv NV + underlag > 40 000 kr (40 000-gränsen är en tröskel, inte ett avdragsbelopp — vid underlag 40 001 kr utgår nedsättning på *hela* underlaget). Beräknas automatiskt av Skatteverket.
+**Generell nedsättning** 7,5 % av hela avgiftsunderlaget, max 15 000 kr/år. Förutsättning: aktiv NV + underlag > 40 000 kr (40 000-gränsen är en tröskel, inte ett avdragsbelopp: vid underlag 40 001 kr utgår nedsättning på *hela* underlaget). Beräknas automatiskt av Skatteverket.
 Regional nedsättning (Norrlands inland stödområde) 10 % på underlag upp till 180 000 kr (max 18 000 kr/år).
 
 Full mechanics, karensval, schablonavdrag och interaktioner: [[egenavgifter-sgi-pgi-jsa]].
@@ -62,7 +63,7 @@ Mechanics and interactions for both fonder: [[periodiseringsfond-expansionsfond-
 
 ## Räkenskapsenlig avskrivning på inventarier
 
-- Huvudregeln: 30% declining balance on (IB + årets inköp – årets försäljningar)
+- Huvudregeln: 30% declining balance on (IB + årets inköp: årets försäljningar)
 - Kompletteringsregeln: 20% straight-line per asset over 5 years
 - Förbrukningsinventarier (< halva PBB: **29 400 kr 2025 / 29 600 kr 2026**, korttidsinventarier ≤ 3 år): direktavdrag (IL 18:4; halva-PBB-gränsen har gällt sedan 2009). Nytt fr.o.m. beskattningsår som börjar efter 2024-12-31 (SFS 2024:1131) för EF med förenklat årsbokslut: hela avskrivningsunderlaget får dras av om det uppgår till högst ett halvt PBB (IL 18:13), och lager på högst ett halvt PBB behöver inte tas upp (IL 17:4 a).
 
@@ -89,7 +90,7 @@ Mechanics and interactions for both fonder: [[periodiseringsfond-expansionsfond-
 - Inkomstskattelagen (IL) 1999:1229, especially kap 13 (NV), 14 (rörelse), 18 (inventarier), 30 (P-fond), 31 (ersättningsfond), 33 (räntefördelning), 34 (expansionsfond), 60 (inkomstuppdelning familj), 62 (allmänna avdrag), 66 (ackumulerad inkomst)
 - Socialavgiftslagen (SAL) 2000:980
 - Lagen (1990:659) om särskild löneskatt på vissa förvärvsinkomster
-- Bokföringslagen (BFL) 1999:1078 — bokföringsskyldighet, K1-tröskel 3 MSEK
-- BFNAR 2006:1 — Enskilda näringsidkare som upprättar förenklat årsbokslut (K1)
+- Bokföringslagen (BFL) 1999:1078: bokföringsskyldighet, K1-tröskel 3 MSEK
+- BFNAR 2006:1: Enskilda näringsidkare som upprättar förenklat årsbokslut (K1)
 - Lag (1995:575) mot skatteflykt
-- SOU 2020:50 — "Enklare skatteregler för enskild näringsverksamhet". **Delvis genomförd** via prop. 2024/25:1 (ikraft 2025-01-01): RF-trösklar omarbetade (50k slopad / -500k negativ tröskel), förenklingar för EF med förenklat årsbokslut (helt avdrag för avskrivningsunderlag ≤ halvt PBB, IL 18:13; lager ≤ halvt PBB, IL 17:4 a). Halva PBB för direktavdrag på inventarier (IL 18:4) är äldre. Den större "näringsfond"-idén (samlad ersättning för P-fond+expansionsfond+RF) **ej genomförd**.
+- SOU 2020:50: "Enklare skatteregler för enskild näringsverksamhet". **Delvis genomförd** via prop. 2024/25:1 (ikraft 2025-01-01): RF-trösklar omarbetade (50k slopad / -500k negativ tröskel), förenklingar för EF med förenklat årsbokslut (helt avdrag för avskrivningsunderlag ≤ halvt PBB, IL 18:13; lager ≤ halvt PBB, IL 17:4 a). Halva PBB för direktavdrag på inventarier (IL 18:4) är äldre. Den större "näringsfond"-idén (samlad ersättning för P-fond+expansionsfond+RF) **ej genomförd**.

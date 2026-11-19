@@ -1,4 +1,5 @@
-# Swedish Invoice Compliance — Decision Trees
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+# Swedish Invoice Compliance: Decision Trees
 
 <!-- toc -->
 **Contents**
@@ -31,11 +32,11 @@
     - Exempt         → ML/Directive reference         (p.13)
     - Reverse charge → "Omvänd betalningsskyldighet"  (p.14)
     - New means of transport to EU → vehicle details  (p.15)
-    - Margin scheme  → "Vinstmarginalbeskattning ..." (p.16–17)
+    - Margin scheme  → "Vinstmarginalbeskattning ..." (p.16-17)
 ```
 
-Missing any of 1–11 = non-compliant. Missing 12 when applicable = non-compliant.
-When the buyer is liable for the VAT, p.9–11 may be omitted if the invoice instead states the tax base with reference to the p.7 details (ML 17:25).
+Missing any of 1-11 = non-compliant. Missing 12 when applicable = non-compliant.
+When the buyer is liable for the VAT, p.9-11 may be omitted if the invoice instead states the tax base with reference to the p.7 details (ML 17:25).
 Prepayments and a conto payments must also be invoiced (ML 17:14).
 
 ## 2. Can a simplified invoice be used?
@@ -43,7 +44,7 @@ Prepayments and a conto payments must also be invoiced (ML 17:14).
 ```
 Total incl. VAT ≤ SEK 4,000?
   AND NOT intra-EU / distance sale / cross-border RC?
-    → Yes: förenklad faktura per ML 17:26–28, SKVFS 2024:16
+    → Yes: förenklad faktura per ML 17:26-28, SKVFS 2024:16
     → No:  full invoice required
 
 Seller applies the small-business VAT exemption (ML 18 kap, ≤ SEK 120,000)?
@@ -59,10 +60,10 @@ Domestic byggtjänster?
   → ML 16:13, seller Box 41, buyer Box 24/30/48, accounts 3231/2614/2647
 
 EU services (B2B main rule)?
-  → ML 16:9 + 6:33, buyer Box 21/30–32/48, accounts 4535/2614/2645
+  → ML 16:9 + 6:33, buyer Box 21/30-32/48, accounts 4535/2614/2645
 
 Intra-EU goods?
-  → ML 10:42, buyer Box 20/30–32/48, accounts 4515/2614/2645
+  → ML 10:42, buyer Box 20/30-32/48, accounts 4515/2614/2645
 
 Electronics >100k SEK/invoice?
   → ML 16:16, same treatment as byggtjänster
@@ -76,7 +77,7 @@ Electronics >100k SEK/invoice?
 3. Customer personnummer on invoice?            → Required
 4. ROT: fastighetsbeteckning included?          → Required
 5. Skattereduktion amount calculated correctly?
-   ROT: 30% of labor incl. moms (50% May–Dec 2025)
+   ROT: 30% of labor incl. moms (50% May-Dec 2025)
    RUT: 50% of labor incl. moms
 6. Combined max per person/year:
    Standard: ROT 50k + RUT 75k, combined cap 75k
@@ -89,7 +90,7 @@ Electronics >100k SEK/invoice?
 
 ```
 1. Own unique fakturanummer + fakturadatum?      → Required
-2. Reference to original invoice number?         → Required (ML 17:22–23)
+2. Reference to original invoice number?         → Required (ML 17:22-23)
 3. Negative amounts with VAT per original rate?  → Required
 4. "Er tillgodo" instead of "Att betala"?        → Convention
 5. Seller reduces utgående moms this period?     → Required
@@ -98,7 +99,7 @@ Electronics >100k SEK/invoice?
 
 ## 6. Common error patterns
 
-High-frequency findings in invoice validation.
+High-frequency findings in Accounted invoice validation.
 
 | Error | Consequence | Fix |
 |---|---|---|

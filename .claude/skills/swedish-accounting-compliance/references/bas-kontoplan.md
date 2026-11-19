@@ -1,8 +1,7 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # BAS Kontoplan Reference
 
 The BAS kontoplan is the de facto standard chart of accounts for Swedish companies. Published by BAS-intressenternas förening. Not legally mandated, but universally used and expected by auditors, Skatteverket, and accounting systems.
-
-
 
 ## Table of Contents
 1. Structure overview
@@ -200,7 +199,7 @@ Workflow:
 2. At declaration: netta 2611+2621+2631-2640 against 2650
 3. Payment to/from Skatteverket: 2650 <-> 1630 (skattekonto)
 
-**From 1 Apr 2026**: livsmedel-momsen sänks från 12 % till 6 % — försäljning av livsmedel flyttas från **2621 (12 %)** till **2631 (6 %)** (intäkt 3002 → 3003; EU-förvärv 2624 → 2634 och 4516 → 4517; import 2625 → 2635). Systemet måste hantera övergången baserat på leveransdatum.
+**From 1 Apr 2026**: livsmedel-momsen sänks från 12 % till 6 %: försäljning av livsmedel flyttas från **2621 (12 %)** till **2631 (6 %)** (intäkt 3002 → 3003; EU-förvärv 2624 → 2634 och 4516 → 4517; import 2625 → 2635). Systemet måste hantera övergången baserat på leveransdatum.
 
 ## 5. Mapping rules and principles
 
@@ -245,4 +244,4 @@ Then separately:
 - The first digit determines the class
 - The second digit typically groups related accounts
 - Stay consistent with BAS standard numbering. Don't invent custom numbers where BAS already has a standard account
-- BAS publishes yearly updates. Most years the changes are small, but BAS 2026 was a major restructure: 114 new and 107 renamed accounts, class 4 split between handelsvaror and råvaror och förnödenheter, and maskiner vs inventarier separated in 12xx, 77xx and 78xx (e.g. 7833–7835 removed). Map accounts per BAS year
+- BAS publishes yearly updates. Most years the changes are small, but BAS 2026 was a major restructure: 114 new and 107 renamed accounts, class 4 split between handelsvaror and råvaror och förnödenheter, and maskiner vs inventarier separated in 12xx, 77xx and 78xx (e.g. 7833-7835 removed). Map accounts per BAS year

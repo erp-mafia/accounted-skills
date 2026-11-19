@@ -2,6 +2,7 @@
 name: swedish-accounting-compliance
 description: Swedish accounting law and compliance reference for developers building accounting software. Use this skill whenever working on features that touch Swedish bookkeeping rules, tax compliance, chart of accounts, financial reporting, or regulatory requirements. Triggers include any mention of BFL, BFNAR, BAS kontoplan, SIE4, K2/K3, momsdeklaration, Skatteverket integration, verifikationer, löpande bokföring, årsbokslut, årsredovisning, bokföringsskyldighet, or Swedish accounting compliance in general. Also trigger when the user is checking whether a feature, data model, or workflow complies with Swedish accounting law, or when implementing tax calculations, invoice requirements, or financial reporting for Swedish entities. Use this skill even if the user just asks "is this compliant?" or "what does the law say about X?" in a Swedish accounting context. This skill is a compliance oracle, not an end-user guide.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Accounting Compliance
 
@@ -47,7 +48,11 @@ A verifikation must contain:
 Verifikationer must be numbered in a systematisk serie without gaps. If a verifikation is corrected, the original must be preserved and the correction linked.
 
 ### Rättelse (BFL 5 kap 5§)
-A rättelse of a bokföringspost must be documented so that both the original and the corrected post are visible. You cannot simply overwrite. Implement as: new correcting verifikation referencing the original.
+A rättelse of a bokföringspost must be documented so that both the original and the corrected post are visible, and it must be recorded when the rättelse was made and who made it. You can never silently overwrite. BFL permits two tracks:
+1. **Särskild rättelsepost** (storno + correcting verifikation referencing the original): always allowed, and the only track once the period is closed or locked or lies behind the company's lock date. A filed VAT or AGI declaration restricts neither track: while the period is open, both stay available, and Accounted shows every change to a filed period so the declaration gets corrected.
+2. **Rättelse in the same verifikat** (strike-and-replace of lines, or correcting the verifikation's text/date per BFL 5 kap 9 §): allowed while the period is open and unlocked, provided the original remains readable (struck lines stay visible) and who/when is recorded immutably. Fortnox and Visma implement this track; in Accounted it is the `correct_entry_metadata` / `correct_entry_lines_inline` RPC envelope logging to `journal_entry_rattelse_log`.
+
+A correction path that erases the original without a trace violates the law under both tracks.
 
 ### Arkivering (BFL 7 kap)
 - Räkenskapsinformation must be preserved for 7 years after the end of the calendar year the räkenskapsår ended
@@ -87,9 +92,9 @@ Förenklad faktura (max 4000 SEK inkl moms) has reduced requirements.
 - Kontantmetod: omsättning normalt < 3 MSEK
 - Revisionspliktig (AB): minst 2 av 3: >3 anställda, >1.5 MSEK balansomslutning, >3 MSEK nettoomsättning (two consecutive years)
 
-### System documentation (BFNAR 2013:2 kap 9)
-Bokföringssystem must have:
-1. Systemdokumentation: describes the system, how it works, its controls
-2. Behandlingshistorik: log of changes, who did what, when
+### System documentation (BFL 5 kap 11 §, BFNAR 2013:2 kap 9)
+Bokföringssystem must have (kapitel 8 is arkivering; this is kapitel 9, verified against BFN's consolidated text 2026-08-21):
+1. Systemdokumentation (p. 9.2-9.15): kontoplan, samlingsplan, arkivplan, verifikationsnummerserier, verifieringskedjor, behandlingsregler, informationsflöden
+2. Behandlingshistorik (p. 9.16): every bokföringspost with registreringsdatum, and changes to the system that affect processing (kontoplan, behandlingsregler such as automatkonteringar and percentages, program versions) with dates; p. 9.15 asks the systemdokumentation to say where and how it is produced
 
 Your software must produce or support both. This is not optional.

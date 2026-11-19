@@ -1,8 +1,8 @@
 ---
 name: swedish-payroll
-description: >
-  Swedish payroll (lön & arbetsgivaravgifter) compliance reference. Covers AGI filing, sociala avgifter (31.42%), skatteavdrag/skattetabeller, förmånsbeskattning (bil/kost/friskvård), semesterlöneskuld, OB/övertid, traktamente, utlägg/milersättning, F-skatt/A-skatt, BAS 7xxx mapping, brutto/nettolöneavdrag, löneväxling, and sjuklön. Trigger on lön, payroll, AGI, arbetsgivaravgifter, skattetabell, förmåner, semesterlön, traktamente, F-skatt, sjuklön, löneväxling, BAS 7xxx, or booking salary/vacation pay/sick pay in a Swedish context. Always use over training data.
+description: Swedish payroll (lön & arbetsgivaravgifter) compliance reference for developers building payroll or accounting software. Covers arbetsgivardeklaration (AGI) filing, sociala avgifter (31.42% breakdown and age reductions), skatteavdrag (tax table lookup, column system, jämkning), förmånsbeskattning (bilförmån calculation, kostförmån, friskvård, KPO), semesterlöneskuld (procentregeln 12%, sammalöneregeln, BAS 2920/7090), OB-tillägg and övertid (Arbetstidslagen limits, CBA divisors), traktamente (domestic/international rates, tremånadersregeln, meal reductions), utlägg vs kostnadsersättning (milersättning, körjournal), F-skatt vs A-skatt distinction and verification, BAS 7xxx series account mapping (7010-7699 wages, 7510 avgifter, 7321-7332 traktamente/resor), nettolöneavdrag vs bruttolöneavdrag processing order, löneväxling (1.058 factor, pension cap), and sjuklön (karensavdrag, day 2-14 at 80%, Försäkringskassan day 15+). Trigger on any mention of lön, lönehantering, payroll, arbetsgivardeklaration, AGI, arbetsgivaravgifter, skatteavdrag, skattetabell, förmånsbeskattning, bilförmån, kostförmån, friskvårdsbidrag, semesterlön, semesterlöneskuld, OB-tillägg, övertidsersättning, traktamente, milersättning, utlägg, F-skatt, A-skatt, FA-skatt, sjuklön, karensavdrag, löneväxling, bruttolöneavdrag, nettolöneavdrag, BAS 7xxx accounts, or any Swedish payroll compliance question. Also trigger when the user asks how to book salary, employer contributions, vacation pay, or sick pay in a Swedish context, or when implementing payroll calculations, AGI XML generation, or tax table lookups. This skill is a developer compliance oracle, not an end-user payroll guide.
 ---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 
 # Swedish Payroll Compliance
 
@@ -20,7 +20,7 @@ This skill has a router structure. The SKILL.md contains the most critical rules
 | `references/social-charges.md` | Questions about arbetsgivaravgifter component breakdown, age-based reductions, egenavgifter, växa-stöd, forskningsavdrag, youth discount, thresholds (PBB/IBB/SGI) |
 | `references/tax-tables.md` | Questions about skatteavdrag, skattetabeller, column system, jämkning, sidoinkomst, statlig inkomstskatt brytpunkt, Skatteverket tax table data format |
 | `references/benefits.md` | Questions about förmånsbeskattning: bilförmån (all 3 formula generations, miljöbil reductions), kostförmån, friskvård, KPO, telefon/internet, bostadsförmån |
-| `references/vacation-pay.md` | Questions about semesterlön, semesterlöneskuld, procentregeln, sammalöneregeln, semestertillägg, sparade dagar, intjänandeår, BAS 2920/7090 accounting |
+| `references/vacation-pay.md` | Questions about semesterlön, semesterlöneskuld, procentregeln, sammalöneregeln, semestertillägg, sparade dagar, intjänandeår, BAS 2920/7090 accounting, deltid and fewer than five workdays a week (nettometoden, Semesterlagen 12 a §) |
 | `references/ob-overtime.md` | Questions about OB-tillägg, övertid, Arbetstidslagen limits, CBA divisors, mertid, kompensationsledighet |
 | `references/travel-expenses.md` | Questions about traktamente (domestic/international), tremånadersregeln, meal reductions, utlägg vs kostnadsersättning, milersättning, körjournal |
 | `references/f-skatt.md` | Questions about F-skatt vs A-skatt vs FA-skatt, verification workflow, employer liability, Skatteverket Företagsuppgifter API |
@@ -39,9 +39,9 @@ Total rate unchanged since 2009. Calculated on full gross salary + taxable benef
 | Birth year condition | Rate |
 |---|---|
 | Born 1937 or earlier | 0% |
-| Born 1938–1958 (2025 and 2026) | 10.21% (only ålderspensionsavgift) |
+| Born 1938-1958 (2025 and 2026) | 10.21% (only ålderspensionsavgift) |
 | Standard (all others) | 31.42% |
-| Temporary youth: turned 18 but not 23 at year start, 2026 = born 2003–2007 (pay from Apr 1, 2026 to Sep 30, 2027) | 20.81% on salary up to 25,000 SEK/month (Lag 2026:100) |
+| Temporary youth (Apr 2026 to Sep 2027) | 20.81% on salary up to 25,000 SEK/month (Lag 2026:100; compensation paid Apr 1, 2026 to Sep 30, 2027). Eligible: vid årets ingång fyllt 18, inte 23 (i.e. age 18-22 at Jan 1; born 2003-2007 in 2026, 2004-2008 in 2027). NOT during-year age: Skatteverket rejects 23-year-olds at year start. Source: Prop. 2025/26:66 |
 
 No avgifter required if total annual compensation from one employer < 1,000 SEK.
 
@@ -94,7 +94,7 @@ Karensavdrag = 20% of one week's sjuklön (80% of weekly pay). Day 2-14: 80% of 
 ### Standard monthly journal entries
 
 1. Gross salary: Debit 7210 / Credit 2710 (tax) + Credit 1930 (net pay)
-2. Employer avgifter: Debit 7510 / Credit 2730
+2. Employer avgifter: Debit 7510 / Credit 2731 (Avräkning lagstadgade sociala avgifter; this codebase's convention, cleared by the skattekonto AGI draw. 2730 is the group account: a legitimate simplification, but never mix the two within one company, see issue #1870. The accrual account is 2940, not 2731.)
 3. Vacation accrual: Debit 7290 / Credit 2920
 4. Avgifter on accrual: Debit 7519 / Credit 2940
 5. Pension premiums: Debit 7410 / Credit 2440/2740
@@ -114,4 +114,4 @@ A-skatt: withhold tax + pay avgifter. F-skatt: neither. FA-skatt: split. No F-sk
 
 ## Rate update schedule
 
-Rates shift annually with PBB, IBB, and SLR. Subscribe to Skatteverket's annual publications each December. Bilförmån formulas use SLR from November 30 of prior year (floor 0.50%). Kostförmån tied to PBB. Traktamente normalbelopp published annually. PBB 2027: SCB has calculated 59,600 SEK; not yet formally set by the government.
+Rates shift annually with PBB, IBB, and SLR. Subscribe to Skatteverket's annual publications each December. Bilförmån formulas use SLR from November 30 of prior year (floor 0.50%). Kostförmån tied to PBB. Traktamente normalbelopp published annually. PBB 2027: 59,600 SEK, set by the government in September 2026.

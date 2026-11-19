@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # K2/K3 Revenue Recognition for Project Accounting
 
 
@@ -44,7 +45,7 @@ Is the contract fixed-price or time-and-materials?
    ├─ K3 (juridisk person): successiv vinstavräkning OR
    │  färdigställandemetoden (punkt 23.31, only industries in 17 kap. 23 § IL)
    │
-   └─ K2 (method choice 6.15): huvudregeln (completion %, 6.16–6.21) OR alternativregeln (6.22–6.25)
+   └─ K2 (method choice 6.15): huvudregeln (completion %, 6.16-6.21) OR alternativregeln (6.22-6.25)
       └─ Alternativregeln: recognize when "väsentligen fullgjort"
          (Srf U 15: assessed from customer acceptance perspective)
 ```

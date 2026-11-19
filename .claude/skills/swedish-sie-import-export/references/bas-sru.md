@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # BAS Kontoplan and SRU Code Reference for SIE4
 
 <!-- toc -->
@@ -27,7 +28,7 @@ BAS uses a 4-digit decimal system: first digit = class, first two = group, all f
 | 6xxx | K | Övriga externa kostnader (kontorsmaterial, telefon, reklam) | Other external costs | Income statement | No (#RES) |
 | 7xxx | K | Personalkostnader, avskrivningar | Personnel, depreciation | Income statement | No (#RES) |
 | 8xxx | I/K | Finansiella poster, bokslutsdispositioner, skatt | Financial items, appropriations, tax | Income statement | No (#RES) |
-| 9xxx | — | Internredovisning | Internal/management | Off-report | N/A |
+| 9xxx | - | Internredovisning | Internal/management | Off-report | N/A |
 
 ## Account type (#KTYP) behavior in SIE4
 
@@ -65,7 +66,7 @@ These accounts appear frequently in SIE files and have special significance:
 
 ### Income statement (3xxx-8xxx)
 - **3010-3099** Försäljning varor/tjänster (sales revenue)
-- **3740** Öres- och kronutjämning (rounding differences, öresutjämning)
+- **3740** Öres- och kronutjämning (rounding differences, öresutjämning; BAS has no 3741)
 - **4010** Varuinköp (cost of goods purchased)
 - **5010** Lokalhyra (office rent)
 - **6110** Kontorsmaterial (office supplies)

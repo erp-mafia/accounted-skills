@@ -1,3 +1,8 @@
+---
+audience: developer
+---
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
+
 # Implementation Patterns for Project Accounting
 
 

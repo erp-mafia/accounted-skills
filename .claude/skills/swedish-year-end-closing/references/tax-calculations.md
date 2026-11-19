@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # Tax Calculations: AB vs Enskild Firma
 
 <!-- toc -->
@@ -50,7 +51,7 @@ This is a skattemässig justering ONLY. NEVER booked in accounting. Reported on 
 
 On reversal in a tax year beginning after 2020-12-31, the reversed amount is grossed up to compensate for the rate reductions (övergångsbestämmelser p. 5 till SFS 2018:1206; AB and other juridiska personer only):
 - Funds from tax years beginning before 2019 (22%): **106%**
-- Funds from tax years beginning 2019–2020 (21.4%): **104%**
+- Funds from tax years beginning 2019-2020 (21.4%): **104%**
 - Funds from 2021 onwards (20.6%): **100%** (no gross-up)
 
 The uplift is reported on INK2S field 4.6d. Handled only in tax calculation.
@@ -74,7 +75,7 @@ Replace arbetsgivaravgifter for employees.
 - Net effect: estimated deduction, reconciled following year
 
 **Reduced rates:**
-- Pensioners born 1938–1958: 10.21% rate, 10% schablonavdrag
+- Pensioners born 1938-1958: 10.21% rate, 10% schablonavdrag
 - Passive businesses: SLP 24.26% instead, 20% schablonavdrag
 
 **Additional nedsättning:** 7.5% (max 15,000 SEK/year) for active businesses with överskott > 40,000 SEK. Calculated automatically by Skatteverket.

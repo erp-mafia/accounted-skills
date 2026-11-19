@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT; Copyright (c) Accounted contributors. Generated mirror; edit the Accounted source. -->
 # SIE4 Validation Rules and Error Patterns
 
 
@@ -296,7 +297,7 @@ If the books are right and only the file was wrong, no correction entry is neede
 
 ### 4. Correct real errors with a rättelsepost
 Only when the diagnosis shows that the books themselves are wrong:
-- Book a separate rättelsepost with its own verifikation (BFNAR 2013:2 p. 2.17–2.18). The original entry stays unchanged and readable.
+- Book a separate rättelsepost with its own verifikation (BFNAR 2013:2 p. 2.17-2.18). The original entry stays unchanged and readable.
 - Book it in the redovisningsperiod in which the error is discovered (or in the period being reconciled, if the work on that period is not yet finished), never in a period whose work is already closed and never as an opening-balance entry.
 - Show when and by whom the correction was made, and make it traceable from the corrected entry, e.g. by noting the rättelsepost's verification number on it (BFL 5:5).
 - Document the difference, the source comparison and the cause (BFNAR 2013:2 p. 2.16), and have the correction approved by the person responsible for the bookkeeping before it is booked.
