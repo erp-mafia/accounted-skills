@@ -17,6 +17,7 @@ Or clone the repository: Claude Code loads `.claude/skills/` when you work insid
 
 | Skill | Covers |
 | --- | --- |
+| [`accounted-start-company`](.claude/skills/accounted-start-company/SKILL.md) | Help a founder start a Swedish aktiebolag (limited company) and get it running |
 | [`swedish-accounting-compliance`](.claude/skills/swedish-accounting-compliance/SKILL.md) | Swedish accounting law and compliance reference for developers building accounting software |
 | [`swedish-asset-accounting`](.claude/skills/swedish-asset-accounting/SKILL.md) | Swedish fixed asset accounting (anläggningsredovisning) reference |
 | [`swedish-cash-register`](.claude/skills/swedish-cash-register/SKILL.md) | Swedish cash register (kassaregister), staff ledger (personalliggare) and the bookkeeping of daily takings |
