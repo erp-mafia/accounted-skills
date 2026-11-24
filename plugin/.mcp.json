@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "accounted": {
+      "type": "http",
+      "url": "https://app.accounted.se/api/extensions/ext/mcp-server/mcp?tool_namespace=accounted"
+    }
+  }
+}

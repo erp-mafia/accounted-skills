@@ -49,6 +49,10 @@ Skills written in this repository, not generated from Accounted's source.
 | [`swedish-industry-saas`](.claude/skills/swedish-industry-saas/SKILL.md) | Swedish accounting for SaaS and software companies |
 | [`swedish-industry-vard`](.claude/skills/swedish-industry-vard/SKILL.md) | Swedish accounting for healthcare, dental care and beauty services (vård, tandvård, skönhet) |
 
+## Claude plugin
+
+The Accounted plugin for Claude, workflow skills plus the connection to an Accounted account, lives in [`plugin/`](plugin/README.md). A copy of `packages/claude-plugin` in erp-mafia/accounted.
+
 ## Community
 
 Instructions shared by Accounted's users and others live in [`community/`](community/README.md): workflows, knowledge and analyses, each reviewed by Accounted before it is merged.
