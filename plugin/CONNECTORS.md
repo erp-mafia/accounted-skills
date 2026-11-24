@@ -1,0 +1,31 @@
+# Connectors
+
+This plugin bundles exactly one connector: the Accounted MCP server, the same server that backs the Accounted connector in Claude.ai and the `accounted-mcp` stdio bridge.
+
+| Connector | Server | Auth | What it reaches |
+|-----------|--------|------|-----------------|
+| Accounted | `https://app.accounted.se/api/extensions/ext/mcp-server/mcp?tool_namespace=accounted` | OAuth 2.1 (PKCE). One-click consent: every scope except Approve (`pending_operations:approve`) pre-selected (adjustable in a fold); bookkeeping writes always stage as agent proposals, which the user approves under Att göra > Rutin (`/pending`); only a user who ticks Approve lets the agent approve them in chat. | The user's own companies in Accounted: ledger, transactions, invoices, VAT, payroll, reconciliation, year-end. |
+
+## Share link and starter prompt
+
+One-click add on claude.ai (opens the Add custom connector dialog prefilled; the params are `connectorName`/`connectorUrl`):
+
+```
+https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Accounted&connectorUrl=https%3A%2F%2Fapp.accounted.se%2Fapi%2Fextensions%2Fext%2Fmcp-server%2Fmcp%3Ftool_namespace%3Daccounted%26client%3Dclaude-connector%26auth%3Drequired
+```
+
+Pair the link with a starter prompt the user pastes as their first message. It stays copy-paste ready for everyone because it points the agent at what it already knows (Claude memory, earlier chats) instead of containing the user's own data; the server-side onboarding skill carries the rest of the flow:
+
+> Sätt upp mitt företag i Accounted och följ kopplingens onboarding-guide. Utgå från det du redan vet om mig och mitt bolag och fråga bara efter det som saknas. Håll det kort.
+
+## How the connection works
+
+- **Lazy authentication.** The server answers `initialize`, `tools/list` and the documentation tools (`accounted_search_tools`, `accounted_list_skills`, `accounted_load_skill`) without any credentials. The first company-scoped call returns an authentication challenge, which Claude Code surfaces as `/mcp` → authenticate and Claude.ai as an inline Connect prompt. `auth=required` on the URL (the share link above carries it) turns lazy authentication off for that URL: every tokenless request, `initialize` included, answers the challenge. That is what claude.ai's Add-custom-connector dialog needs, because it probes the URL without credentials and only reads a 401 as OAuth.
+- **Adding it by hand in Claude.ai** (Settings → Connectors → Add custom connector): paste the URL **with `auth=required`**; the dialog then detects Authentication **"Always required"** and OAuth client **"register one automatically" (DCR)**; the server does not advertise CIMD yet. Without the flag the dialog auto-detects "None" (the lazy handshake looks authless to it) and the choice must be overridden to "Required when the server asks". No extra headers, Streamable HTTP.
+- **Account creation inside the sign-in.** A user who has no Accounted account creates one on the sign-in screen the challenge opens (BankID or e-mail + 2FA). No visit to the website first. `/accounted:setup` walks the whole flow, including creating the company from the conversation.
+- **Bookkeeping writes are staged.** They create a pending operation with a preview; nothing is booked until the user approves, in the web app or, on a connection with Approve ticked, in chat via `accounted_approve_pending_operation`. A few writes outside the ledger (a document upload, a saved memory) run at once.
+- **Data stays in the user's tenant.** The connector only ever sees companies the signed-in user is a member of, enforced server-side per call.
+
+## Self-hosted Accounted
+
+Point the plugin at your own instance: remove the bundled server and add yours with `claude mcp add --transport http accounted "https://your-host/api/extensions/ext/mcp-server/mcp?tool_namespace=accounted"`. The same OAuth flow, skills and commands apply.
